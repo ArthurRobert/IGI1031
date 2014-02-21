@@ -9,8 +9,8 @@ public class JeuDeTests {
 	 */
 	public static void main(String[] args) {
 		
-		int largeur = 300;
-		int hauteur = 300;
+		int largeur = 10;
+		int hauteur = 10;
 		Carte carte = Carte.getInstance(largeur, hauteur);
 
 	}
