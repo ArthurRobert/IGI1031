@@ -4,6 +4,11 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+/**
+ *  CarteFrame est la fenetre qui contiendra le jeu.
+ * 
+ *
+ */
 public class CarteFrame extends JFrame{
 	
 	public CarteFrame(int largeur, int hauteur){

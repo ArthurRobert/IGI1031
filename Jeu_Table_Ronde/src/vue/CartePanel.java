@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.GridLayout;
+import java.awt.Label;
 
 import javax.swing.JPanel;
 
@@ -10,9 +11,10 @@ public class CartePanel extends JPanel {
 		super();
 		this.setLayout(new GridLayout(largeur,hauteur));
 		
+		
+		
 		for(int i=0;i<largeur;i++){
 			for(int j=0;j<hauteur;j++){
-				
 			}
 		}
 		
