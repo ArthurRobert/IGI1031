@@ -20,10 +20,10 @@ public class CarteFrame extends JFrame{
 		super("Aux quatre coins du monde");
 		
 		//taille de la fenêtre
-		this.setSize(largeur,hauteur);
+		this.setSize(700,700);
 		//croix rouge active
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+				
 		//ajout d'une grille
 		this.add(new CartePanel(largeur,hauteur));
 		
@@ -43,6 +43,12 @@ public class CarteFrame extends JFrame{
         file.setMnemonic(KeyEvent.VK_F);
         
         JMenuItem eMenuItemNew = new JMenuItem("Nouvelle Partie");
+        eMenuItemNew.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+               new NouvellePartie();
+            }
+        });
         file.add(eMenuItemNew);
         
         JMenuItem eMenuItemFermer = new JMenuItem("Fermer");

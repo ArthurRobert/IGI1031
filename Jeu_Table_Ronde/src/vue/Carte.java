@@ -13,17 +13,28 @@ public final class Carte {
 	private static volatile Carte AuxQuatresCoinDuMonde=null;
 	
 	//Attributs
-	private int largeur;
-	private int hauteur;
+	private int nbCaseX;
+	private int nbCaseY;
 	private CarteFrame carteFrame;
 	
 	//Constructeur
-	private Carte(int largeur, int hauteur) throws HeadlessException {
-		this.largeur = largeur;
-		this.hauteur = hauteur;
-		carteFrame = new  CarteFrame(largeur, hauteur);
+	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
+		this.nbCaseX = nbCaseX;
+		this.nbCaseY = nbCaseY;
+		carteFrame = new  CarteFrame(nbCaseX, nbCaseY);
 		
 	}
+	
+	
+	//getters & setters
+	public int getNbCaseX() {
+		return nbCaseX;
+	}
+
+	public int getNbCaseY() {
+		return nbCaseY;
+	}
+	
 	
 	/**
 	 * Methode permettant de renvoyer une instance de la classe
@@ -40,5 +51,4 @@ public final class Carte {
 		}
 		return Carte.AuxQuatresCoinDuMonde;
 	}
-
 }

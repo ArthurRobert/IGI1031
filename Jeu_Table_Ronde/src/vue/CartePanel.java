@@ -1,32 +1,37 @@
 package vue;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class CartePanel extends JPanel implements ActionListener {
 
 	ArrayList<JButton> tabButton = null;	
+	int largeur;
 	public  CartePanel(int largeur1, int hauteur1) {
 		super();
-		int largeur=(int)Math.sqrt(largeur1);
+		largeur=(int)Math.sqrt(largeur1);
 		int hauteur=(int)Math.sqrt(hauteur1);
-		this.setLayout(new GridLayout(largeur,hauteur));	
+		this.setLayout(new GridLayout(largeur,hauteur));
+		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+		this.setBackground(Color.lightGray);
+		
 		String emplacement="case ";
 		tabButton = new ArrayList<JButton>();
 		for(int i=0;i<largeur;i++){
 			for(int j=0;j<hauteur;j++){
 				//System.out.println("for");
-				emplacement=emplacement+i+j;
+				emplacement=""+i+j;
 				JButton boutonCase = new JButton();
 				boutonCase.setText(emplacement);
 				boutonCase.addActionListener(this);
-				emplacement="case "; //remise à zéro du nom
 				this.add(boutonCase);
 				tabButton.add(boutonCase);
 			}
@@ -45,4 +50,8 @@ public class CartePanel extends JPanel implements ActionListener {
 	        }//fin for
 	 
 	 }//fin actionPerformed
+	 
+	 public int  getNbCaseX(){
+		 return this.largeur;
+	 }
 }
