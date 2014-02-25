@@ -25,6 +25,7 @@ public class FactoryObjet {
 		}
 
 		if (typeObjet.equals("chateau")){
+			o = new Chateau(0);
 	
 		}
 	
