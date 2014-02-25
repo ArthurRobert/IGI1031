@@ -21,10 +21,10 @@ public class FactoryObjet {
 		}
 
 		else if (typeObjet.equals("chateau")){
+			o = new Chateau(0);
 	
 		}
-	}
 
-		return null;
+		return o;
 	}
 }
