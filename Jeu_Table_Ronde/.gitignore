@@ -1,3 +1,7 @@
 /bin
 #Jeu de test
 /src/main/JeuDeTests.java
+
+#package tests
+/src/tests/*
+!/src/tests/package-info.java
