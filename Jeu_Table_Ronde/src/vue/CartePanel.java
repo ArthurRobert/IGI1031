@@ -12,8 +12,10 @@ import javax.swing.JPanel;
 public class CartePanel extends JPanel implements ActionListener {
 
 	ArrayList<JButton> tabButton = null;	
-	public  CartePanel(int largeur, int hauteur) {
+	public  CartePanel(int largeur1, int hauteur1) {
 		super();
+		int largeur=(int)Math.sqrt(largeur1);
+		int hauteur=(int)Math.sqrt(hauteur1);
 		this.setLayout(new GridLayout(largeur,hauteur));	
 		String emplacement="case ";
 		tabButton = new ArrayList<JButton>();
@@ -29,7 +31,6 @@ public class CartePanel extends JPanel implements ActionListener {
 				tabButton.add(boutonCase);
 			}
 		}
-		
 		
 	}//fin constructeur
 
