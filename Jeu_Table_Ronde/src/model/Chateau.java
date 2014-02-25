@@ -7,4 +7,3 @@ public class Chateau extends Objet {
 		this.setType("Chateau");
 	}	
 }
-

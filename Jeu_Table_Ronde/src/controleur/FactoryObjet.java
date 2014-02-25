@@ -36,18 +36,22 @@ public class FactoryObjet {
 
 		nbCreated++;
 		Objet o = null;
-		//Si on à tiré la motier de la map on crée un chateau
+		//Si on à tiré la moitié de la map on crée un chateau
 		if(nbCreated == sizeMap/2) return o = new Chateau(0);
 		
+		// On test si il y a plus de place sur la map que de nombre d'objet graal à poser.
 		else if(((sizeMap - nbCreated) >= (DefObjetGraal.length - listeGraal.size())) ){
+			
+			//calcul de la probabilité de créer un objet sur la map
 			if( Math.random() <= ((double)(DefObjetGraal.length + ratio*sizeMap))/(sizeMap)){
-				//Graal
+				//calcul de la probabilité de créer un objet graal sur la map
 				if( Math.random() <= ((double)DefObjetGraal.length)/(sizeMap)){	
 					o = createObjectGraal();
 				}
-				//obstacle
+				//calcul de la probabilité de créer un objet obstacle sur la map
 				else {
 					double x = Math.random();
+					//génération aléatoire des objets obstacles
 					for (int i=0; i<DefObjetObstacle.length;i++){
 						if(x<=((double)(i+1)/DefObjetObstacle.length)){
 							o = new ObjetObstacle(DefObjetObstacle[i][0],Integer.parseInt(DefObjetObstacle[i][1]));
