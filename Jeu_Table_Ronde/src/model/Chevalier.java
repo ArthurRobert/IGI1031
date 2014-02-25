@@ -3,27 +3,16 @@ package model;
 
 public class Chevalier {
 	private String type;
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-
-
-
 	private String nom;
 	private Integer nivVie;
 	private Integer positionX;
 	private Integer positionY;
 	
-	
 public Chevalier(String unNom){
 	nom=unNom;
 }
-public void setNom(String unNom) {
-	nom = unNom;
-}
+
+
 
 //public trouverObjet(){
 	
@@ -56,5 +45,15 @@ public String getNom(){
 	return nom;
 }
 
+public void setNom(String unNom) {
+	nom = unNom;
+}
+
+public String getType() {
+	return type;
+}
+public void setType(String type) {
+	this.type = type;
+}
 
 }
