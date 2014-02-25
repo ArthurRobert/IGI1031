@@ -20,7 +20,7 @@ public class FactoryObjet {
 		for(int i=0;i<DefObjetGraal.length;i++){
 				
 				if (typeObjet.equals(DefObjetGraal[i][0])){
-					o = new ObjetGraal(DefObjetGraal[i][0],Integer.parseInt(DefObjetGraal[i][1]),Integer.parseInt(DefObjetGraal[i][2]));
+					o = new ObjetGraal(DefObjetGraal[i][0], Integer.parseInt(DefObjetGraal[i][1]),Integer.parseInt(DefObjetGraal[i][2]));
 				}
 		}
 
