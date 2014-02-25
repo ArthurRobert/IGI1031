@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import model.Chevalier;
 import model.ChevalierJoueur;
 import model.ChevalierOrdi;
+import model.FactoryChevalier;
 import vue.Carte;
 
 public class JeuDeTests {
@@ -17,12 +18,12 @@ public class JeuDeTests {
 		int hauteur = 10;
 		Carte carte = Carte.getInstance(largeur, hauteur);
 		
+		FactoryChevalier tableRonde = new FactoryChevalier();
 		
-		ChevalierJoueur Perceval= new ChevalierJoueur("Perceval");
-		ChevalierJoueur Lancelot= new ChevalierJoueur("Lancelot");
+		Chevalier Perceval= tableRonde.addChevalier("Perceval","joueur");
+		Chevalier Lancelot= tableRonde.addChevalier("Lancelot","ordi");
 		
-		
-		
+	   
 		
 		
 

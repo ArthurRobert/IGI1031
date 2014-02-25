@@ -17,12 +17,21 @@ public class FactoryChevalier {
 	
 	
 	
-	public void addChevalier(Chevalier c){
+	public Chevalier addChevalier(String nom,String type){
+		Chevalier c = null;
 		for (int i=0;i<listeChevalier.size();i++){
-			if (!(c.getNom().equals(listeChevalier.get(i).getNom())) && listeChevalier.size()<4){
+			if (!(nom.equals(listeChevalier.get(i).getNom())) && listeChevalier.size()<4){
+				if(type.equals("joueur")){
+					c = new ChevalierJoueur(nom);
+				}
+				else if(type.equals("ordi")){
+					c = new ChevalierOrdi(nom);
+				}
 			listeChevalier.add(c);
 			}
 		}
+		return c;
+		
 		}
 	public void mourir(Chevalier c){
 		listeChevalier.remove(c);
