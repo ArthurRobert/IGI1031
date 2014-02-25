@@ -6,13 +6,13 @@ public class FactoryObjet {
 	
 	Objet o = null;
 	
-	public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
-	public static final String[][] DefObjetGraal = {{"Excalibur","+50"},{"Pierre Fal Lial","+25"},{"Lance de lug","+30"},{"Chaudron Connaissance","+35"}};
+    public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
+	public static final String[][] DefObjetGraal = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
 	
-	public Object createObject(String typeObjet) { 
-		for (int i=0; i<DefObjetObstacle[1].length;i++){	
-			if (typeObjet.equals(DefObjetObstacle[1][i])){
-				o = new ObjetObstacle(DefObjetObstacle[0][i],Integer.parseInt(DefObjetObstacle[2][i]));
+	public Object createObject(String typeObjet) { 	
+		for (int i; i<DefObjetObstacle.length;i++){	
+			if (typeObjet.equals(DefObjetObstacle[i][0])){
+				o = new ObjetObstacle(DefObjetObstacle[i][0],Integer.parseInt(DefObjetObstacle[i][1]));
 			}
 		}
 		
