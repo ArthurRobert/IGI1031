@@ -7,7 +7,8 @@ public class FactoryObjet {
 	Objet o = null;
 	
     public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
-	public static final String[][] DefObjetGraal = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
+	public static final String[][] DefObjetGraal = {{"Excalibur","+50"},{"Pierre Fal Lial","+25"},{"Lance de lug","+30"},{"Chaudron Connaissance","+35"}};
+
 	
 	public Object createObject(String typeObjet) { 	
 		for (int i; i<DefObjetObstacle.length;i++){	
