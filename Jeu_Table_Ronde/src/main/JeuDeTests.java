@@ -21,8 +21,11 @@ public class JeuDeTests {
 		FactoryChevalier tableRonde = new FactoryChevalier();
 		
 		Chevalier Perceval= tableRonde.addChevalier("Perceval","joueur");
+		//System.out.println("Ajout du chevalier"+Perceval.getNom());
+		System.out.println("La table ronde comprend"+tableRonde.listeChevalier.size()+"joueurs");
 		Chevalier Lancelot= tableRonde.addChevalier("Lancelot","ordi");
-		
+		//System.out.println("Ajout du chevalier"+Lancelot.getNom()+"de type"+Lancelot.getType());
+		System.out.println("La table ronde comprend"+tableRonde.listeChevalier.size()+"joueurs");
 	   
 		
 		

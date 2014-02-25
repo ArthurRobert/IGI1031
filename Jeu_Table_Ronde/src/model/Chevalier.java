@@ -2,6 +2,16 @@ package model;
 
 
 public class Chevalier {
+	private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
+
+
 	private String nom;
 	private Integer nivVie;
 	private Integer positionX;
