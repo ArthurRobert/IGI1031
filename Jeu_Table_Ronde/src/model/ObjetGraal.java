@@ -9,7 +9,7 @@ public class ObjetGraal extends Objet{
 		super();
 		this.type = type;
 		this.poids = poids;
-		this.nbVie = nbVie;
+		this.nbVie = nbVie ;
 	}
 
 }
