@@ -6,7 +6,7 @@ import model.*;
 public class FactoryObjet {
 
 
-	Objet o = null;
+
 	int nbCreated = 0; 
 	double ratio;
 	Integer sizeMap;
@@ -28,29 +28,32 @@ public class FactoryObjet {
 	public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
 
 	//DefObjetGraal : {type, poids, nbVie}
-	public static final String[][] DefObjetGraal = {{"Excalibur","10","50"},{"Pierre Fal Lial","15","25"},{"Lance de lug","20","30"},{"Chaudron Connaissance","25","35"}};
+	public static final String[][] DefObjetGraal = {{"Excalibur","10","50"},{"Pierre_Fal_Lial","15","25"},{"Lance_de_lug","20","30"},{"Chaudron_Connaissance","25","35"}};
 
 
-	//Creation des objets Obstacles
+	//Creation des objets
 	public Objet createObject(String typeObjet) {
-		
-		nbCreated++;
-		if(((sizeMap - nbCreated) > (DefObjetGraal.length - listeGraal.size())) ){
 
-			if( Math.random() <= (DefObjetGraal.length + ratio*sizeMap)/(sizeMap)){
+		nbCreated++;
+		Objet o = null;
+		//Si on à tiré la motier de la map on crée un chateau
+		if(nbCreated == sizeMap/2) return o = new Chateau(0);
+		
+		else if(((sizeMap - nbCreated) >= (DefObjetGraal.length - listeGraal.size())) ){
+			if( Math.random() <= ((double)(DefObjetGraal.length + ratio*sizeMap))/(sizeMap)){
 				//Graal
-				if( Math.random() <= DefObjetGraal.length/(sizeMap)){	
+				if( Math.random() <= ((double)DefObjetGraal.length)/(sizeMap)){	
 					o = createObjectGraal();
 				}
 				//obstacle
 				else {
-					//				double x = Math.random();
-					//				for (int i=1; i<=DefObjetObstacle.length;i++){
-					//					if(x<=(i/DefObjetObstacle.length)){
-					//						o = new ObjetObstacle(DefObjetObstacle[i][0],Integer.parseInt(DefObjetObstacle[i][1]));
-					//						break;
-					//					}
-					//				}
+					double x = Math.random();
+					for (int i=0; i<DefObjetObstacle.length;i++){
+						if(x<=((double)(i+1)/DefObjetObstacle.length)){
+							o = new ObjetObstacle(DefObjetObstacle[i][0],Integer.parseInt(DefObjetObstacle[i][1]));
+							break;
+						}
+					}
 				}
 			}
 			else{
@@ -62,7 +65,7 @@ public class FactoryObjet {
 		}
 		//Creation du Chateau
 		if (typeObjet.equals("chateau")){
-			o = new Chateau(0);
+			
 
 		}
 
@@ -71,13 +74,15 @@ public class FactoryObjet {
 
 
 
-	private int objectAfter (int i, ArrayList<ObjetGraal> liste){
+	private int objectNextFree (int i, ArrayList<ObjetGraal> liste){
 		int result = -1;
 		Boolean bExiste=false;
 		for(ObjetGraal objet :liste){
 			if (objet.getType().equals(DefObjetGraal[i][0])){
-				if(i==(DefObjetGraal.length)) i=0; 
-				result = objectAfter(i++,liste);
+
+				if(i==(DefObjetGraal.length-1)) i=0;
+				else i++;
+				result = objectNextFree(i,liste);
 				bExiste=true;
 				break;
 			}
@@ -94,9 +99,9 @@ public class FactoryObjet {
 		ObjetGraal o = null;
 		if(listeGraal.size()<4){	
 			double x = Math.random();
-			for (int i=1; i<=DefObjetGraal.length;i++){
-				if(x<= ((double)i)/DefObjetGraal.length){
-					int j = objectAfter(i-1,listeGraal);
+			for (int i=0; i<DefObjetGraal.length;i++){
+				if(x<= ((double)(i+1))/DefObjetGraal.length){
+					int j = objectNextFree(i,listeGraal);
 					o = new ObjetGraal(DefObjetGraal[j][0], Integer.parseInt(DefObjetGraal[j][1]),Integer.parseInt(DefObjetGraal[j][2]));
 					listeGraal.add((ObjetGraal) o);
 					break;
