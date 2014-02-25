@@ -27,7 +27,7 @@ public class JeuDeTests {
 		//System.out.println("Ajout du chevalier"+Lancelot.getNom()+"de type"+Lancelot.getType());
 		System.out.println("La table ronde comprend"+tableRonde.listeChevalier.size()+"joueurs");
 	   
-		
+		//test nicolasB
 		
 
 		
