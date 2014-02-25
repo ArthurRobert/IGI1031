@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import vue.Carte;
 
 public class FactoryChevalier {
 	
