@@ -3,6 +3,10 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ecouteur pour le bouton demarrer de nouvelle partie
+ * 
+ * */
 public class BoutonCommencerEcouteur implements ActionListener {
 
 	@Override
