@@ -58,6 +58,8 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent arg0) 
 	{
+		boolean conditionOk = true;
+		
 		/**
 		 * Tests du type d'utilisateur
 		 */
@@ -98,6 +100,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		else {
 			//message d'erreur
 			System.out.println("Erreur de nom de joueur");
+			conditionOk = false;
 		}
 		
 		
@@ -114,7 +117,25 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		else {
 			//message d'erreur
 			System.out.println("Erreur de dimension");
+			conditionOk = false;
 		}
+		
+		
+		/**
+		 * vérification du ratio
+		 */
+		//récupération
+		int ratio = isRatioOk(ratioTf.getText());
+		
+		if (ratio != -1) {
+			//gérer le ratio
+		}
+		else {
+			//message d'erreur
+			System.out.println("Erreur de ratio");
+			conditionOk = false;
+		}
+
 
 		
 	}
