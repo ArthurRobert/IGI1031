@@ -18,7 +18,7 @@ public final class Carte {
 	private CarteFrame carteFrame;
 	
 	//Constructeur
-	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
+	public Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
 		this.nbCaseX = nbCaseX;
 		this.nbCaseY = nbCaseY;
 		carteFrame = new  CarteFrame(nbCaseX, nbCaseY);
