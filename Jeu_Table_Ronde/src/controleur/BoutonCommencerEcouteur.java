@@ -14,7 +14,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 
 	private JTextField ratioTf, largeurTf, hauteurTf, joueur1, joueur2, joueur3, joueur4;
 	
-	private JRadioButton boutonHumain1, boutonHumain2, boutonHumain3, boutonHumain4, boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
+	private JRadioButton boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
 
 
 	/**
@@ -27,10 +27,6 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 * @param joueur2
 	 * @param joueur3
 	 * @param joueur4
-	 * @param boutonHumain1
-	 * @param boutonHumain2
-	 * @param boutonHumain3
-	 * @param boutonHumain4
 	 * @param boutonOrdi1
 	 * @param boutonOrdi2
 	 * @param boutonOrdi3
@@ -38,9 +34,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 */
 	public BoutonCommencerEcouteur(JTextField ratioTf, JTextField largeurTf,
 			JTextField hauteurTf, JTextField joueur1, JTextField joueur2,
-			JTextField joueur3, JTextField joueur4, JRadioButton boutonHumain1,
-			JRadioButton boutonHumain2, JRadioButton boutonHumain3,
-			JRadioButton boutonHumain4, JRadioButton boutonOrdi1,
+			JTextField joueur3, JTextField joueur4, JRadioButton boutonOrdi1,
 			JRadioButton boutonOrdi2, JRadioButton boutonOrdi3,
 			JRadioButton boutonOrdi4) {
 		super();
@@ -51,10 +45,6 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		this.joueur2 = joueur2;
 		this.joueur3 = joueur3;
 		this.joueur4 = joueur4;
-		this.boutonHumain1 = boutonHumain1;
-		this.boutonHumain2 = boutonHumain2;
-		this.boutonHumain3 = boutonHumain3;
-		this.boutonHumain4 = boutonHumain4;
 		this.boutonOrdi1 = boutonOrdi1;
 		this.boutonOrdi2 = boutonOrdi2;
 		this.boutonOrdi3 = boutonOrdi3;
@@ -68,6 +58,64 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent arg0) 
 	{
+		/**
+		 * Tests du type d'utilisateur
+		 */
+		if (boutonOrdi1.isSelected()) {
+			//notifier que le joueur 1 sera dirigé par l'ordi
+		}else {
+			//notifier que le joueur 1 sera dirigé par un utilisateur
+		}
+		if (boutonOrdi2.isSelected()) {
+			//notifier que le joueur 2 sera dirigé par l'ordi
+		}else {
+			//notifier que le joueur 2 sera dirigé par un utilisateur
+		}
+		if (boutonOrdi3.isSelected()) {
+			//notifier que le joueur 3 sera dirigé par l'ordi
+		}else {
+			//notifier que le joueur 3 sera dirigé par un utilisateur
+		}
+		if (boutonOrdi4.isSelected()) {
+			//notifier que le joueur 4 sera dirigé par l'ordi
+		}else {
+			//notifier que le joueur 4 sera dirigé par un utilisateur
+		}
+		
+		
+		
+		/**
+		 * Vérification du nom des joueurs
+		 */	
+		//obtention des noms des joueurs
+		String[] joueursNames = {joueur1.getText(), joueur2.getText(), joueur3.getText(), joueur4.getText()};
+
+		//test du nom des joueurs
+		if (isPlayerNameOk(joueursNames))
+		{
+			//attribuer les noms des joueurs
+		}
+		else {
+			//message d'erreur
+			System.out.println("Erreur de nom de joueur");
+		}
+		
+		
+		/**
+		 * vérification des dimensions
+		 */
+		//récupération
+		int largeur = isDimensionOk(largeurTf.getText());
+		int hauteur = isDimensionOk(hauteurTf.getText());
+		
+		if (hauteur !=-1 && largeur != -1) {
+			//mettre au dimension
+		}
+		else {
+			//message d'erreur
+			System.out.println("Erreur de dimension");
+		}
+
 		
 	}
 	
@@ -92,19 +140,29 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 * retourne si le nom est correct ou non
 	 * Le nom doit etre rempli et pas trop plus de 30 caratères
 	 */
-	private boolean isPlayerNameOk(String joueur) {
+	private boolean isPlayerNameOk(String[] joueurs) {
 		
-		if (joueur.isEmpty() || joueur==null || joueur.length()>30) {
-			return false;
+		//quelques vérifications de base
+		for (String joueur : joueurs) {
+			if (joueur.isEmpty() || joueur==null || joueur.length()>30) {
+				return false;
+			}
+			
+			//les noms doivent être uniques
+			for (String joueur2 : joueurs) {
+				if (joueur2.equals(joueur)) {
+					return false;
+				}
+			}
 		}
-		else {
-			return true;
-		}
+		
+		// si tout est ok on retourne true
+		return true;
 	}
 	
 	/**
 	 * retourne la dimension si elle est correcte, -1 sinon
-	 * elle doit etre comprise entre 2 et 30 (a modifier si besoin
+	 * elle doit etre comprise entre 2 et 30 (a modifier si besoin)
 	 */
 	private int isDimensionOk(String dimTxt) {
 		
@@ -112,7 +170,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		
 		try 
 		{		
-			 dimension =Integer.parseInt(dimTxt);	
+			 dimension = Integer.parseInt(dimTxt);	
 		} 
 		catch (NumberFormatException e) 
 		{

@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
@@ -8,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -41,6 +43,7 @@ public class NouvellePartiePanelCentre extends JPanel {
 		
 		JRadioButton buttonHumain1 = new JRadioButton();
 		JRadioButton buttonOrdi1 = new JRadioButton();
+		buttonOrdi1.setSelected(true);
 		ButtonGroup typeJoueur1 = new ButtonGroup();
 		typeJoueur1.add(buttonHumain1);
 		typeJoueur1.add(buttonOrdi1);
@@ -51,6 +54,7 @@ public class NouvellePartiePanelCentre extends JPanel {
 		
 		JRadioButton buttonHumain2 = new JRadioButton();
 		JRadioButton buttonOrdi2 = new JRadioButton();
+		buttonOrdi2.setSelected(true);
 		ButtonGroup typeJoueur2 = new ButtonGroup();
 		typeJoueur2.add(buttonHumain2);
 		typeJoueur2.add(buttonOrdi2);
@@ -61,6 +65,7 @@ public class NouvellePartiePanelCentre extends JPanel {
 		
 		JRadioButton buttonHumain3 = new JRadioButton();
 		JRadioButton buttonOrdi3 = new JRadioButton();
+		buttonOrdi3.setSelected(true);
 		ButtonGroup typeJoueur3 = new ButtonGroup();
 		typeJoueur3.add(buttonHumain3);
 		typeJoueur3.add(buttonOrdi3);
@@ -71,6 +76,7 @@ public class NouvellePartiePanelCentre extends JPanel {
 		
 		JRadioButton buttonHumain4 = new JRadioButton();
 		JRadioButton buttonOrdi4= new JRadioButton();
+		buttonOrdi4.setSelected(true);
 		ButtonGroup typeJoueur4 = new ButtonGroup();
 		typeJoueur4.add(buttonHumain4);
 		typeJoueur4.add(buttonOrdi4);

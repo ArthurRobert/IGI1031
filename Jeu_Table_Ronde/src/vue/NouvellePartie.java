@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controleur.BoutonCommencerEcouteur;
+
 public class NouvellePartie extends JFrame {
 
 	public NouvellePartie()  {
@@ -41,7 +43,6 @@ public class NouvellePartie extends JFrame {
 		JPanel panelCentre = new NouvellePartiePanelCentre(listeDeroulante);
 		
 		this.add(panelCentre,BorderLayout.CENTER);
-		
 		
 		
 		JPanel panelSouth = new JPanel();
