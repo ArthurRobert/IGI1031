@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import controleur.RatioEcouteur;
+
 public class NouvellePartiePanelCentre extends JPanel {
 	
 	NouvellePartiePanelCentre(JComboBox listeDeroulante) {
@@ -80,8 +82,10 @@ public class NouvellePartiePanelCentre extends JPanel {
 		//Panel sud
 		JLabel ratio = new JLabel("Ratio");
 		JTextField tfRation = new JTextField();
+		
 		JLabel hauteurCarte = new JLabel("Hauteur de la carte");
 		JTextField tfHauteurCarte = new JTextField();
+		
 		JLabel largeurCarte = new JLabel("Largeur de la carte");
 		JTextField tfLargeurCarte = new JTextField();
 		
