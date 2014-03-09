@@ -1,5 +1,7 @@
 package controleur;
 
+import java.awt.Dialog;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,6 +39,12 @@ public class RatioEcouteur implements ActionListener {
 		//test du ratio
 		int ratioInt = this.isRatioOk(ratioTxt);
 
+		if (ratioInt == -1) 
+		{
+			Dialog dialog = new Dialog(new Frame(),"Ratio incorrect");
+			dialog.setVisible(true);
+		}
+		
 		//que faire avec le ratio ?
 		//todo
 	}
