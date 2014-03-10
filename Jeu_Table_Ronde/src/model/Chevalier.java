@@ -1,6 +1,7 @@
 package model;
 
 
+
 public class Chevalier {
 	
 	//Attributs
@@ -20,9 +21,10 @@ public class Chevalier {
 
 
 
-//public trouverObjet(){
-	
-//}
+public void trouverObjet(ObjetGraal o){
+	this.sacChevalier.ajoutObjetGraal(o);
+	System.out.println("Objet ramassé");
+}
 
 
 	
