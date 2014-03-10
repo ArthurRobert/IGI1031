@@ -1,11 +1,8 @@
 package vue;
 
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.Hashtable;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -14,14 +11,17 @@ import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
-
-import controleur.RatioEcouteur;
 
 public class NouvellePartiePanelCentre extends JPanel {
 	
 	NouvellePartie nouvellePartie;
-	
+
+   static final int FPS_MIN = 0;
+   static final int FPS_MAX = 100;
+   static final int FPS_INIT = 0; 
+
 	NouvellePartiePanelCentre(JComboBox listeDeroulante, NouvellePartie nouvellePartie) {
 		super();
 		this.nouvellePartie=nouvellePartie;
@@ -92,8 +92,20 @@ public class NouvellePartiePanelCentre extends JPanel {
 		JButton startButton=nouvellePartie.startButton;
 		
 		//Panel sud
-		JLabel ratio = new JLabel("Ratio");
-		JTextField tfRation = new JTextField();
+		JLabel ratioLabel = new JLabel("Ratio");
+	
+		   //Create the slider
+          JSlider ratio = new JSlider(JSlider.HORIZONTAL,FPS_MIN, FPS_MAX, FPS_INIT);
+          ratio.setMajorTickSpacing(1);
+          ratio.setPaintTicks(true);
+
+          //Create the label table
+          Hashtable labelTable = new Hashtable();
+          labelTable.put( new Integer( 0 ), new JLabel("Facile") );
+          labelTable.put( new Integer( FPS_MAX ), new JLabel("Difficile") );
+          ratio.setLabelTable( labelTable );
+
+          ratio.setPaintLabels(true);
 		
 		JLabel hauteurCarte = new JLabel("Hauteur de la carte");
 		JTextField tfHauteurCarte = new JTextField();
@@ -102,8 +114,8 @@ public class NouvellePartiePanelCentre extends JPanel {
 		JTextField tfLargeurCarte = new JTextField();
 		
 		//ajout element dans panel sud
+		panelSud.add(ratioLabel);
 		panelSud.add(ratio);
-		panelSud.add(tfRation);
 		panelSud.add(hauteurCarte);
 		panelSud.add(tfHauteurCarte);
 		panelSud.add(largeurCarte);
