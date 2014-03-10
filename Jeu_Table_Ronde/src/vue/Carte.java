@@ -7,6 +7,9 @@ package vue;
 
 import java.awt.HeadlessException;
 
+import model.Chevalier;
+import model.FactoryChevalier;
+
 public final class Carte {
 	
 	//instance singleton
@@ -50,5 +53,10 @@ public final class Carte {
 			}
 		}
 		return Carte.AuxQuatresCoinDuMonde;
+	}
+	
+	//Creation de Chevalier
+	public void orderChevalier(String nom, String type){
+		Chevalier c=FactoryChevalier.addChevalier(nom, type);
 	}
 }
