@@ -23,12 +23,4 @@ public class FactoryChevalier {
 		return c;
 	}	
 	
-	/**
-	 * Fonction de suppression d'un chevalier
-	 * Paramètre d'entrée : nom du joueur
-	 * 
-	 * */
-	public void mourir(Chevalier c){
-		// A FAIRE
-	}
 }
