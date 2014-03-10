@@ -6,6 +6,7 @@
 package vue;
 
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 
 import model.Chevalier;
 import model.FactoryChevalier;
@@ -19,6 +20,7 @@ public final class Carte {
 	private int nbCaseX;
 	private int nbCaseY;
 	private CarteFrame carteFrame;
+	private ArrayList<Chevalier> tabChevalier;
 	
 	//Constructeur
 	public Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
