@@ -7,9 +7,14 @@ public class Chevalier {
 	private Integer nivVie;
 	private Integer positionX;
 	private Integer positionY;
+	private Sac sacChevalier;
 	
+
+
+
 public Chevalier(String unNom){
 	nom=unNom;
+	Sac sacChevalier= new Sac();
 }
 
 
@@ -18,6 +23,15 @@ public Chevalier(String unNom){
 	
 //}
 
+public Sac getSacChevalier() {
+		return sacChevalier;
+	}
+
+
+
+	public void setSacChevalier(Sac sacChevalier) {
+		this.sacChevalier = sacChevalier;
+	}
 
 
 public Integer getNivVie() {
@@ -38,8 +52,6 @@ public Integer getPositionY() {
 public void setPositionY(Integer positionY) {
 	this.positionY = positionY;
 }
-
-
 
 public String getNom(){
 	return nom;

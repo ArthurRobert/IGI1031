@@ -9,6 +9,7 @@ public class Sac {
 	Sac(){	
 		poids = 0;
 		contenu = new ArrayList<ObjetGraal>();
+		System.out.println("sac");
 	}
 		
 	
