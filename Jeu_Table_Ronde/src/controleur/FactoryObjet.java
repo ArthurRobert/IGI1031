@@ -18,9 +18,6 @@ public class FactoryObjet {
 		super();
 		this.ratio = ratio;
 		this.sizeMap=sizeMap;
-
-
-
 	}
 
 
