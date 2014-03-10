@@ -20,8 +20,11 @@ import controleur.RatioEcouteur;
 
 public class NouvellePartiePanelCentre extends JPanel {
 	
-	NouvellePartiePanelCentre(JComboBox listeDeroulante) {
+	NouvellePartie nouvellePartie;
+	
+	NouvellePartiePanelCentre(JComboBox listeDeroulante, NouvellePartie nouvellePartie) {
 		super();
+		this.nouvellePartie=nouvellePartie;
 		this.setLayout(new BorderLayout());
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		JPanel panelNord = new JPanel();
@@ -85,6 +88,9 @@ public class NouvellePartiePanelCentre extends JPanel {
 		JTextField joueur4 = new JTextField("Karadoc");
 		panelNord.add(joueur4);
 		
+		//StartButton pour Nicolas B
+		JButton startButton=nouvellePartie.startButton;
+		
 		//Panel sud
 		JLabel ratio = new JLabel("Ratio");
 		JTextField tfRation = new JTextField();
@@ -106,4 +112,5 @@ public class NouvellePartiePanelCentre extends JPanel {
 		this.add(panelNord,BorderLayout.NORTH);
 		this.add(panelSud,BorderLayout.SOUTH);
 	}
+	
 }

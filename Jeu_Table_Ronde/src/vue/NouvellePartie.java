@@ -15,6 +15,8 @@ import controleur.BoutonCommencerEcouteur;
 
 public class NouvellePartie extends JFrame {
 
+	JButton startButton;
+	
 	public NouvellePartie()  {
 		super("Configurer une nouvelle partie");
 		this.setSize(600, 300);
@@ -40,7 +42,7 @@ public class NouvellePartie extends JFrame {
 		
 		this.add(panelNorth, BorderLayout.NORTH);
 		
-		JPanel panelCentre = new NouvellePartiePanelCentre(listeDeroulante);
+		JPanel panelCentre = new NouvellePartiePanelCentre(listeDeroulante,this);
 		
 		this.add(panelCentre,BorderLayout.CENTER);
 		
@@ -48,7 +50,7 @@ public class NouvellePartie extends JFrame {
 		JPanel panelSouth = new JPanel();
 		panelSouth.setLayout(new BorderLayout());
 		
-		JButton startButton = new JButton("Commencer");
+		startButton = new JButton("Commencer");
 		startButton.setPreferredSize(new Dimension(10,20));
 		
 		
@@ -61,4 +63,13 @@ public class NouvellePartie extends JFrame {
 		this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
 		this.setVisible(true);
 	}
+
+	public JButton getStartButton() {
+		return startButton;
+	}
+
+	public void setStartButton(JButton startButton) {
+		this.startButton = startButton;
+	}
+	
 }
