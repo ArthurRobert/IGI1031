@@ -7,6 +7,7 @@ public class Chevalier {
 	private Integer nivVie;
 	private Integer positionX;
 	private Integer positionY;
+	private Mouvement mouvement;
 	private Sac sacChevalier;
 	
 
@@ -66,6 +67,18 @@ public String getType() {
 }
 public void setType(String type) {
 	this.type = type;
+}
+
+
+
+public Mouvement getMouvement() {
+	return mouvement;
+}
+
+
+
+public void setMouvement(Mouvement mouvement) {
+	this.mouvement = mouvement;
 }
 
 }
