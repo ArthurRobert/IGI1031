@@ -6,6 +6,11 @@ public class FactoryChevalier {
 	
 	public static ArrayList<Chevalier> listeChevalier = new  ArrayList<Chevalier>();
 	
+	
+	/**
+	 * Getter
+	 * 
+	 * */
 	public ArrayList<Chevalier> getListeChevalier() {
 		return listeChevalier;
 	}
@@ -30,6 +35,7 @@ public class FactoryChevalier {
 							c = new ChevalierOrdi(nom);
 						}
 						listeChevalier.add(c);
+						
 					}		
 		return c;
 	}

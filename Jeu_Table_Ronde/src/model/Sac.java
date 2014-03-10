@@ -9,14 +9,14 @@ public class Sac {
 	Sac(){	
 		poids = 0;
 		contenu = new ArrayList<ObjetGraal>();
-		System.out.println("sac");
+		System.out.println("sac cree");
 	}
 		
 	
 	/**
 	 * Fonction d'ajout d'un objet Graal au sac 
 	 * */
-	void ajoutObjetGraal(ObjetGraal graal){
+	public void ajoutObjetGraal(ObjetGraal graal){
 		this.getContenu().add(graal);
 		this.setPoids(this.getPoids() + graal.poids);
 	}
@@ -24,7 +24,7 @@ public class Sac {
 	/**
 	 * Fonction pour vider entièrement le sac
 	 * */
-	void viderSac(){
+	public void viderSac(){
 		this.contenu.removeAll(getContenu());
 	}
 
