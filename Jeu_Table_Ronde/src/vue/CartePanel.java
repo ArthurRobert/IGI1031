@@ -15,10 +15,12 @@ public class CartePanel extends JPanel implements ActionListener {
 
 	ArrayList<JButton> tabButton = null;	
 	int largeur;
+	int hauteur;
+	
 	public  CartePanel(int largeur1, int hauteur1) {
 		super();
-		largeur=(int)Math.sqrt(largeur1);
-		int hauteur=(int)Math.sqrt(hauteur1);
+		this.largeur=largeur1;
+		this.hauteur=hauteur1;
 		this.setLayout(new GridLayout(largeur,hauteur));
 		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.setBackground(Color.lightGray);
@@ -53,5 +55,30 @@ public class CartePanel extends JPanel implements ActionListener {
 	 
 	 public int  getNbCaseX(){
 		 return this.largeur;
+	 }
+	 
+	 public void deplacementPossible(Integer x,Integer y){
+		 System.out.println("effacement fini");
+		 this.setLayout(new GridLayout(largeur,hauteur));
+		this.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+		this.setBackground(Color.lightGray);
+		
+
+		 String emplacement;
+			for(int i=0;i<largeur;i++){
+				if(x<i-1 || x>i+1){
+					for(int j=0;j<hauteur;j++){
+						this.remove(tabButton.get(i+j));
+						emplacement=""+i+j;
+						JButton boutonCase = new JButton();
+						boutonCase.setText(emplacement);
+						boutonCase.addActionListener(this);
+						this.add(boutonCase);
+						tabButton.add(boutonCase);
+					}
+				}
+			}
+			this.repaint();
+			this.validate();
 	 }
 }
