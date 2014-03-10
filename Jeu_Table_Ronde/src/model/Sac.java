@@ -12,16 +12,25 @@ public class Sac {
 	}
 		
 	
-
+	/**
+	 * Fonction d'ajout d'un objet Graal au sac 
+	 * */
 	void ajoutObjetGraal(ObjetGraal graal){
 		this.getContenu().add(graal);
 		this.setPoids(this.getPoids() + graal.poids);
 	}
 	
+	/**
+	 * Fonction pour vider entièrement le sac
+	 * */
 	void viderSac(){
 		this.contenu.removeAll(getContenu());
 	}
 
+	
+	/**
+	 * Fonctions Getter and Setter 
+	 * */
 	public int getPoids() {
 		return poids;
 	}

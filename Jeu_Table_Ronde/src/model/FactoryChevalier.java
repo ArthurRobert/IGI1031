@@ -12,6 +12,13 @@ public class FactoryChevalier {
 		return listeChevalier;
 	}
 		
+	
+	/**
+	 * Fonction d'ajout d'un chevalier à la liste de chevaliers
+	 * avec test si le nom est déjà utilisé
+	 * Paramètres d'entrée : nom et type du joueur
+	 * 
+	 * */
 	public static Chevalier addChevalier(String nom,String type){
 		Chevalier c = null;
 		Boolean pris= false;
@@ -23,7 +30,7 @@ public class FactoryChevalier {
 					}
 					else{
 						pris = true;
-						System.out.println("joueur déjà pris");
+						System.out.println("nom de joueur déjà pris");
 					}
 				}
 			if (listeChevalier.size()<4 && pris.equals(false)){
@@ -35,10 +42,7 @@ public class FactoryChevalier {
 							c = new ChevalierOrdi(nom);
 						}
 						listeChevalier.add(c);
-
 					}
-					
-			
 			}
 			else{
 				if(type.equals("joueur")){
@@ -48,12 +52,17 @@ public class FactoryChevalier {
 					c = new ChevalierOrdi(nom);
 				}
 				listeChevalier.add(c);
-
 			}
 		
 		return c;
-		
-		}
+	}
+	
+	
+	/**
+	 * Fonction de suppression d'un chevalier
+	 * Paramètre d'entrée : nom du joueur
+	 * 
+	 * */
 	public void mourir(Chevalier c){
 		listeChevalier.remove(c);
 	}
