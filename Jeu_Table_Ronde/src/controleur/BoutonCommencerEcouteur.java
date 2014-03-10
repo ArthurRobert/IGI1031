@@ -159,7 +159,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	/**
 	 * retourne si le nom est correct ou non
-	 * Le nom doit etre rempli et pas trop plus de 30 caratères
+	 * Le nom doit etre rempli et pas plus de 30 caratères
 	 */
 	private boolean isPlayerNameOk(String[] joueurs) {
 		

@@ -8,8 +8,9 @@ public class Chevalier {
 	private Integer positionX;
 	private Integer positionY;
 	
-public Chevalier(String unNom){
+public Chevalier(String unNom, String untype ){
 	nom=unNom;
+	type=untype;
 }
 
 
