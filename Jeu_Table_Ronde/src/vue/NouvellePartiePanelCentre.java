@@ -7,22 +7,24 @@ import java.util.Hashtable;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
+import controleur.BoutonCommencerEcouteur;
+
 public class NouvellePartiePanelCentre extends JPanel {
 	
+	private static final long serialVersionUID = 1L;
 	NouvellePartie nouvellePartie;
+	BoutonCommencerEcouteur bp = null;
+    static final int FPS_MIN = 0;
+    static final int FPS_MAX = 100;
+    static final int FPS_INIT = 0; 
 
-   static final int FPS_MIN = 0;
-   static final int FPS_MAX = 100;
-   static final int FPS_INIT = 0; 
-
-	NouvellePartiePanelCentre(JComboBox listeDeroulante, NouvellePartie nouvellePartie) {
+	NouvellePartiePanelCentre(NouvellePartie nouvellePartie) {
 		super();
 		this.nouvellePartie=nouvellePartie;
 		this.setLayout(new BorderLayout());
@@ -88,8 +90,6 @@ public class NouvellePartiePanelCentre extends JPanel {
 		JTextField joueur4 = new JTextField("Karadoc");
 		panelNord.add(joueur4);
 		
-		//StartButton pour Nicolas B
-		JButton startButton=nouvellePartie.startButton;
 		
 		//Panel sud
 		JLabel ratioLabel = new JLabel("Ratio");
@@ -100,7 +100,7 @@ public class NouvellePartiePanelCentre extends JPanel {
           ratio.setPaintTicks(true);
 
           //Create the label table
-          Hashtable labelTable = new Hashtable();
+          Hashtable<Integer, JLabel> labelTable = new Hashtable<Integer, JLabel>();
           labelTable.put( new Integer( 0 ), new JLabel("Facile") );
           labelTable.put( new Integer( FPS_MAX ), new JLabel("Difficile") );
           ratio.setLabelTable( labelTable );
@@ -123,6 +123,14 @@ public class NouvellePartiePanelCentre extends JPanel {
 		
 		this.add(panelNord,BorderLayout.NORTH);
 		this.add(panelSud,BorderLayout.SOUTH);
+		
+		//StartButton pour Nicolas B
+		
+		JButton startButton = nouvellePartie.getStartButton();
+
+		startButton.addActionListener(new BoutonCommencerEcouteur( ratio ,tfLargeurCarte , tfHauteurCarte , joueur1, joueur2, joueur3, joueur4, buttonOrdi1, buttonOrdi2 , buttonOrdi3, buttonOrdi4, this.nouvellePartie));
+				
+		
 	}
 	
 }
