@@ -57,6 +57,12 @@ public final class Carte {
 		return Carte.AuxQuatresCoinDuMonde;
 	}
 	
+	public boolean isCreated(){
+		if (Carte.AuxQuatresCoinDuMonde ==null)
+				return false;
+		else return true;
+	}
+	
 	//Creation de Chevalier
 	public void orderChevalier(String nom, String type){
 		Chevalier c=FactoryChevalier.addChevalier(nom, type);
