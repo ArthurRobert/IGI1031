@@ -108,10 +108,10 @@ public class NouvellePartiePanelCentre extends JPanel {
           ratio.setPaintLabels(true);
 		
 		JLabel hauteurCarte = new JLabel("Hauteur de la carte");
-		JTextField tfHauteurCarte = new JTextField();
+		JTextField tfHauteurCarte = new JTextField("10");
 		
 		JLabel largeurCarte = new JLabel("Largeur de la carte");
-		JTextField tfLargeurCarte = new JTextField();
+		JTextField tfLargeurCarte = new JTextField("10");
 		
 		//ajout element dans panel sud
 		panelSud.add(ratioLabel);
@@ -127,7 +127,6 @@ public class NouvellePartiePanelCentre extends JPanel {
 		//StartButton pour Nicolas B
 		
 		JButton startButton = nouvellePartie.getStartButton();
-
 		startButton.addActionListener(new BoutonCommencerEcouteur( ratio ,tfLargeurCarte , tfHauteurCarte , joueur1, joueur2, joueur3, joueur4, buttonOrdi1, buttonOrdi2 , buttonOrdi3, buttonOrdi4, this.nouvellePartie));
 				
 		
