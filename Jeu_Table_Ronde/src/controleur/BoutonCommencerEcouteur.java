@@ -3,15 +3,14 @@ package controleur;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Vector;
 
 import javax.swing.JRadioButton;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 import vue.Carte;
-
+import vue.NouvellePartie;
 import model.Chevalier;
-import model.FactoryChevalier;
 
 /**
  * Ecouteur pour le bouton demarrer de nouvelle partie
@@ -19,9 +18,12 @@ import model.FactoryChevalier;
  * */
 public class BoutonCommencerEcouteur implements ActionListener {
 
-	private JTextField ratioTf, largeurTf, hauteurTf, joueur1, joueur2, joueur3, joueur4;
+	private JTextField largeurTf, hauteurTf, joueur1, joueur2, joueur3, joueur4;
 	
+	private JSlider ratioTf;
 	private JRadioButton boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
+	
+	private Object o;
 
 	private ArrayList<Chevalier> chevalier_vector = new ArrayList<Chevalier>();
 	
@@ -40,11 +42,11 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 * @param boutonOrdi3
 	 * @param boutonOrdi4
 	 */
-	public BoutonCommencerEcouteur(JTextField ratioTf, JTextField largeurTf,
+	public BoutonCommencerEcouteur( JSlider ratioTf, JTextField largeurTf,
 			JTextField hauteurTf, JTextField joueur1, JTextField joueur2,
 			JTextField joueur3, JTextField joueur4, JRadioButton boutonOrdi1,
 			JRadioButton boutonOrdi2, JRadioButton boutonOrdi3,
-			JRadioButton boutonOrdi4/*, ArrayList<Chevalier> listChevalier*/) {
+			JRadioButton boutonOrdi4,Object o) {
 		
 		super();
 		this.ratioTf = ratioTf;
@@ -58,6 +60,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		this.boutonOrdi2 = boutonOrdi2;
 		this.boutonOrdi3 = boutonOrdi3;
 		this.boutonOrdi4 = boutonOrdi4;
+		this.o = o;
 		
 	}
 
@@ -68,7 +71,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent arg0) 
 	{
-		boolean conditionOk = true;
+		
 		
 		/**
 		 * Tests du type d'utilisateur
@@ -137,7 +140,6 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		else {
 			//message d'erreur
 			System.out.println("Erreur de nom de joueur");
-			conditionOk = false;
 		}
 		
 		
@@ -147,32 +149,15 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		//récupération
 		int largeur = isDimensionOk(largeurTf.getText());
 		int hauteur = isDimensionOk(hauteurTf.getText());
-		int ratio = isRatioOk(ratioTf.getText());
+		int ratio = ratioTf.getValue();
 		
 		if (hauteur !=-1 && largeur != -1 && ratio != -1) {
 						//mettre au dimension
-			Carte.getInstance(hauteur, largeur, ratio, chevalier_vector);
+			((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
 		}
 		else {
 			//message d'erreur
 			System.out.println("Erreur de dimension");
-			conditionOk = false;
-		}
-	}
-		
-		
-
-	private int isRatioOk(String ratioTxt) {
-		//critère pour le ratio à déterminer
-		
-		try 
-		{		
-			return Integer.parseInt(ratioTxt);			
-		} 
-		catch (NumberFormatException e) 
-		{
-			e.printStackTrace();
-			return -1;
 		}
 	}
 	
