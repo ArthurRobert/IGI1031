@@ -158,6 +158,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		if (hauteur !=-1 && largeur != -1 && ratio != -1) {
 						//mettre au dimension
 			((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
+			((NouvellePartie)o).dispose();
 		}
 		else {
 			//message d'erreur
