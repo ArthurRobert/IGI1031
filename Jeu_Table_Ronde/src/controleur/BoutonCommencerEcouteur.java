@@ -82,7 +82,11 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		 * Vérification du nom des joueurs
 		 */	
 		//obtention des noms des joueurs
-		String[] joueursNames = {joueur1.getText(), joueur2.getText(), joueur3.getText(), joueur4.getText()};
+		ArrayList<String> joueursNames = new ArrayList<String>();
+		joueursNames.add(joueur1.getText());
+		joueursNames.add(joueur2.getText());
+		joueursNames.add(joueur3.getText());
+		joueursNames.add(joueur4.getText());
 
 		//test du nom des joueurs
 		if (isPlayerNameOk(joueursNames))
@@ -165,22 +169,23 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	 * retourne si le nom est correct ou non
 	 * Le nom doit etre rempli et pas plus de 30 caratères
 	 */
-	private boolean isPlayerNameOk(String[] joueurs) {
+	private boolean isPlayerNameOk(ArrayList<String> joueurs) {
+		
+
+		ArrayList<String> copiListeJoueur = new ArrayList<String>(joueurs);
 		
 		//quelques vérifications de base
-		for (String joueur : joueurs) {
-			if (joueur.isEmpty() || joueur==null || joueur.length()>30) {
+		for (String nomJoueur: joueurs) {
+			if (joueurs.isEmpty() || joueurs==null || joueurs.size()>30) {
 				return false;
 			}
-			
-			//les noms doivent être uniques
-			for (String joueur2 : joueurs) {
-				if (joueur2.equals(joueur)) {
+			copiListeJoueur.remove(nomJoueur);
+			for (String autreJoueur: copiListeJoueur) {
+				if (nomJoueur.equals(autreJoueur))
 					return false;
-				}
 			}
+			//les noms doivent être uniques
 		}
-		
 		// si tout est ok on retourne true
 		return true;
 	}
