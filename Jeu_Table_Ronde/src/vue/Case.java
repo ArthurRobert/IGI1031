@@ -6,6 +6,7 @@ import model.Objet;
 
 public class Case extends JButton{
 
+	private static final long serialVersionUID = 1L;
 	int position;
 	Objet element;
 	
