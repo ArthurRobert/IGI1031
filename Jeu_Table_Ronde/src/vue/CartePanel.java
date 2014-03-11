@@ -65,12 +65,12 @@ public class CartePanel extends JPanel implements ActionListener {
 	 
 	 public void deplacementPossible(Integer x,Integer y){
 		 
-		 int nbColonne=tabLignes.size();
-		 int nbLigne=(tabLignes.get(0)).size();
 		 
+		 int nbLigne=tabLignes.size();
+		 int nbColonne=tabLignes.get(0).size();
 		 //griser les deplacement impossible
-		 for(int i=0;i<nbColonne;i++){
-	        	for(int j=0;j<nbLigne;j++){
+		 for(int i=0;i<nbLigne;i++){
+	        	for(int j=0;j<nbColonne;j++){
 		        	tabLignes.get(i).get(j).setEnabled(false);
 	        	}//fin for
 	        }//fin for
