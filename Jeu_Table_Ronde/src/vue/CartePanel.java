@@ -11,7 +11,9 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class CartePanel extends JPanel implements ActionListener {
+import controleur.ClickBoutonEcouteur;
+
+public class CartePanel extends JPanel  {
 
 	ArrayList<JButton> tabButton = null;	
 	int largeur;
@@ -33,7 +35,7 @@ public class CartePanel extends JPanel implements ActionListener {
 				emplacement=""+i+j;
 				JButton boutonCase = new JButton();
 				boutonCase.setText(emplacement);
-				boutonCase.addActionListener(this);
+				boutonCase.addActionListener(new ClickBoutonEcouteur(tabButton));
 				this.add(boutonCase);
 				tabButton.add(boutonCase);
 			}
@@ -41,17 +43,6 @@ public class CartePanel extends JPanel implements ActionListener {
 		
 	}//fin constructeur
 
-	 public  void    actionPerformed(ActionEvent e){
-	        Object  source=e.getSource();
-	        
-	        //On cherche sur quel bouton l'utilisateur a cliqué
-	        for(int i=0;i<tabButton.size();i++){
-	        	if(source==tabButton.get(i)){
-	        		System.out.println(tabButton.get(i).getText()); //affichage du numéro de case dans la console
-	        	}//fin if
-	        }//fin for
-	 
-	 }//fin actionPerformed
 	 
 	 public int  getNbCaseX(){
 		 return this.largeur;
@@ -72,7 +63,7 @@ public class CartePanel extends JPanel implements ActionListener {
 						emplacement=""+i+j;
 						JButton boutonCase = new JButton();
 						boutonCase.setText(emplacement);
-						boutonCase.addActionListener(this);
+						boutonCase.addActionListener(new ClickBoutonEcouteur(tabButton));
 						this.add(boutonCase);
 						tabButton.add(boutonCase);
 					}
