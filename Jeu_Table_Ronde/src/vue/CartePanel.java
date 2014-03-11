@@ -52,6 +52,7 @@ public class CartePanel extends JPanel implements ActionListener {
 	        	for(int j=0;j<(tabLignes.get(i)).size();j++){
 		        	if(source==(tabLignes.get(i)).get(j)){
 		        		System.out.println((tabLignes.get(i)).get(j).getText()); //affichage du numéro de case dans la console
+		        		this.deplacementPossible(i, j);
 		        	}//fin if
 	        	}//fin for
 	        }//fin for
@@ -73,31 +74,130 @@ public class CartePanel extends JPanel implements ActionListener {
 		        	tabLignes.get(i).get(j).setEnabled(false);
 	        	}//fin for
 	        }//fin for
-		 /*
+		 
 		 int numDerniereLigne=nbLigne-1;
 		 int numDerniereColonne=nbColonne-1;
 
 		 if(x==0){
+			 
+			 //Corner  top left
 			 if(y==0){
+				 tabLignes.get(numDerniereLigne).get(numDerniereColonne).setEnabled(true);
+				 tabLignes.get(numDerniereLigne).get(0).setEnabled(true);
+				 tabLignes.get(numDerniereLigne).get(1).setEnabled(true);
 				 
+				 tabLignes.get(0).get(numDerniereColonne).setEnabled(true);
+				 tabLignes.get(0).get(1).setEnabled(true);
+				 
+				 tabLignes.get(1).get(numDerniereColonne).setEnabled(true);
+				 tabLignes.get(1).get(0).setEnabled(true);
+				 tabLignes.get(1).get(1).setEnabled(true);
 			 }
 			 else{
+				 
+				 //Corner top right
 				 if(y==numDerniereColonne){
+					 tabLignes.get(numDerniereLigne).get(numDerniereColonne-1).setEnabled(true);
+					 tabLignes.get(numDerniereLigne).get(numDerniereColonne).setEnabled(true);
+					 tabLignes.get(numDerniereLigne).get(0).setEnabled(true);
+					 
+					 tabLignes.get(0).get(numDerniereColonne-1).setEnabled(true);
+					 tabLignes.get(0).get(0).setEnabled(true);
+					 
+					 tabLignes.get(1).get(numDerniereColonne-1).setEnabled(true);
+					 tabLignes.get(1).get(numDerniereColonne).setEnabled(true);
+					 tabLignes.get(1).get(0).setEnabled(true);
 					 
 				 }
 				 else{
-					 
+					 // top ligne
+					 for(int i=x;i<=x+1;i++){
+				        	for(int j=y-1;j<=y+1;j++){
+				        		tabLignes.get(i).get(j).setEnabled(true);
+				        	}//fin for
+				        }//fin for
+					 for(int j=y-1;j<=y+1;j++){
+			        		tabLignes.get(numDerniereLigne).get(j).setEnabled(true);
+			        	}//fin for
 				 }
 			 }
 		 }
-		 */
-		 
-		 for(int i=x-1;i<=x+1;i++){
-	        	for(int j=y-1;j<=y+1;j++){
-	        		tabLignes.get(i).get(j).setEnabled(true);
-	        		System.out.println("i: "+i+"j"+j);
-	        	}//fin for
-	        }//fin for
+		 else{
+			 if(x==numDerniereLigne){
+				 if(y==0){
+					 //corner bottom left
+					 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne).setEnabled(true);
+					 tabLignes.get(numDerniereLigne-1).get(0).setEnabled(true);
+					 tabLignes.get(numDerniereLigne-1).get(1).setEnabled(true);
+					 
+					 tabLignes.get(numDerniereLigne).get(numDerniereColonne).setEnabled(true);
+					 tabLignes.get(numDerniereLigne).get(1).setEnabled(true);
+					 
+					 tabLignes.get(0).get(numDerniereColonne).setEnabled(true);
+					 tabLignes.get(0).get(0).setEnabled(true);
+					 tabLignes.get(0).get(1).setEnabled(true);
+				 }
+				 else{
+					 if(y==numDerniereColonne){
+						//corner bottom right
+						 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne-1).setEnabled(true);
+						 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne).setEnabled(true);
+						 tabLignes.get(numDerniereLigne-1).get(0).setEnabled(true);
+						 
+						 tabLignes.get(numDerniereLigne).get(numDerniereColonne-1).setEnabled(true);
+						 tabLignes.get(numDerniereLigne).get(0).setEnabled(true);
+						 
+						 tabLignes.get(0).get(numDerniereColonne-1).setEnabled(true);
+						 tabLignes.get(0).get(numDerniereColonne).setEnabled(true);
+						 tabLignes.get(0).get(0).setEnabled(true);
+					 }
+					 else{
+						// top ligne
+						 for(int i=x-1;i<x+1;i++){
+					        	for(int j=y-1;j<=y+1;j++){
+					        		tabLignes.get(i).get(j).setEnabled(true);
+					        	}//fin for
+					        }//fin for
+						 for(int j=y-1;j<=y+1;j++){
+				        		tabLignes.get(0).get(j).setEnabled(true);
+				        	}//fin for						 
+					 }
+				 }
+				 
+			 }
+			 else{
+				 if(y==0){
+					 for(int i=x-1;i<=x+1;i++){
+				        	for(int j=y;j<=y+1;j++){
+				        		tabLignes.get(i).get(j).setEnabled(true);
+				        	}//fin for
+				        }//fin for
+					 for(int i=x-1;i<=x+1;i++){
+						 tabLignes.get(i).get(numDerniereColonne).setEnabled(true);
+					 }
+				 }
+				 else{
+					 if(y==numDerniereColonne){
+						 for(int i=x-1;i<=x+1;i++){
+					        	for(int j=y-1;j<y+1;j++){
+					        		tabLignes.get(i).get(j).setEnabled(true);
+					        	}//fin for
+					        }//fin for
+						 for(int i=x-1;i<=x+1;i++){
+							 tabLignes.get(i).get(0).setEnabled(true);
+						 }						 
+					 }
+					 else{
+						 //All other cases
+						 for(int i=x-1;i<=x+1;i++){
+					        	for(int j=y-1;j<=y+1;j++){
+					        		tabLignes.get(i).get(j).setEnabled(true);
+					        	}//fin for
+					        }//fin for 
+					 }
+				 }
+			 }
+		 }
 		 tabLignes.get(x).get(y).setEnabled(false);
 		 
 	 }
