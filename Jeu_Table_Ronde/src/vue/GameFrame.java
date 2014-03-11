@@ -4,17 +4,33 @@
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-	import javax.swing.JFrame;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 	
 public class GameFrame extends JFrame{
+	
 	private static final long serialVersionUID = 1812513897512845459L;
-
+	
+	//instance singleton
+	private static volatile GameFrame gameFrame=null;
 	private Carte map=null;
+	
+	
+	public final static GameFrame getInstance(){
+		if (GameFrame.gameFrame==null){
+			synchronized(GameFrame.class){
+				if(GameFrame.gameFrame==null)
+				{
+					GameFrame.gameFrame= new GameFrame();
+				}
+			}
+		}
+		return GameFrame.gameFrame;
+	}
 
-		public GameFrame(){
+		private GameFrame(){
 			super("Aux quatre coins du monde");
 			
 			//taille de la fenêtre
@@ -42,7 +58,7 @@ public class GameFrame extends JFrame{
 	        eMenuItemNew.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
-	               new NouvellePartie(this);
+	            	new NouvellePartie();
 	            }
 	        });
 	        file.add(eMenuItemNew);
@@ -78,7 +94,8 @@ public class GameFrame extends JFrame{
 		public void setMap(Carte map) {
 			this.map = map;
 			if (map != null)
-			 this.add(map.getCarteFrame());
+			 this.add(map.getCartePanel());
+			this.setVisible(true);
 		}
 	
 	
