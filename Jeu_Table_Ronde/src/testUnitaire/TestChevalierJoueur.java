@@ -1,8 +1,10 @@
 package testUnitaire;
 
 import junit.framework.TestCase;
+import model.Chateau;
 import model.Chevalier;
 import model.ChevalierJoueur;
+import model.Mouvement;
 import model.ObjetGraal;
 import model.Sac;
 
@@ -26,6 +28,7 @@ public class TestChevalierJoueur extends TestCase {
 	//	joueur1.trouverObjet(excalibur);
 		joueur1.setNivVie(0);
 		niveauDeVie = joueur1.getNivVie();
+		
 	}
 	
 	@Test
@@ -56,5 +59,18 @@ public class TestChevalierJoueur extends TestCase {
 	public void testPositionY(){
 		joueur1.setPositionY(1);
 		assertSame(1, joueur1.getPositionY());
+	}
+	public void testNom(){
+		assertSame("Arthur",joueur1.getNom());
+		joueur1.setNom("Perceval");
+		assertSame("Perceval",joueur1.getNom());
+	}
+	public void testType(){
+		joueur1.setType("pc");
+		assertSame("pc", joueur1.getType());
+	}
+	// A implementer
+	public void testMouvement(){
+		//test get/set mouvement d'un chevalier
 	}
 }
