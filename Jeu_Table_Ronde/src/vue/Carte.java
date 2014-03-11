@@ -23,7 +23,7 @@ public final class Carte {
 	private ArrayList<Chevalier> tabChevalier;
 	
 	//Constructeur
-	public Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
+	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
 		this.nbCaseX = nbCaseX;
 		this.nbCaseY = nbCaseY;
 		carteFrame = new  CarteFrame(nbCaseX, nbCaseY);
