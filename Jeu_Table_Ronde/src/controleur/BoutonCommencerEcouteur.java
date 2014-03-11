@@ -2,9 +2,14 @@ package controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import model.Chevalier;
+import model.FactoryChevalier;
 
 /**
  * Ecouteur pour le bouton demarrer de nouvelle partie
@@ -16,7 +21,8 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	private JRadioButton boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
 
-
+	private Vector<Chevalier> chevalier_vector = new Vector<Chevalier>();
+	
 	/**
 	 * Constructeur
 	 * 
@@ -36,7 +42,8 @@ public class BoutonCommencerEcouteur implements ActionListener {
 			JTextField hauteurTf, JTextField joueur1, JTextField joueur2,
 			JTextField joueur3, JTextField joueur4, JRadioButton boutonOrdi1,
 			JRadioButton boutonOrdi2, JRadioButton boutonOrdi3,
-			JRadioButton boutonOrdi4) {
+			JRadioButton boutonOrdi4/*, ArrayList<Chevalier> listChevalier*/) {
+		
 		super();
 		this.ratioTf = ratioTf;
 		this.largeurTf = largeurTf;
@@ -49,6 +56,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		this.boutonOrdi2 = boutonOrdi2;
 		this.boutonOrdi3 = boutonOrdi3;
 		this.boutonOrdi4 = boutonOrdi4;
+		
 	}
 
 	/**
@@ -63,25 +71,36 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		/**
 		 * Tests du type d'utilisateur
 		 */
+	
+		
 		if (boutonOrdi1.isSelected()) {
 			//notifier que le joueur 1 sera dirigé par l'ordi
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "ordi"));
+			
 		}else {
 			//notifier que le joueur 1 sera dirigé par un utilisateur
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "joueur"));
 		}
 		if (boutonOrdi2.isSelected()) {
 			//notifier que le joueur 2 sera dirigé par l'ordi
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "ordi"));
 		}else {
 			//notifier que le joueur 2 sera dirigé par un utilisateur
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "joueur"));
 		}
 		if (boutonOrdi3.isSelected()) {
 			//notifier que le joueur 3 sera dirigé par l'ordi
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "ordi"));
 		}else {
 			//notifier que le joueur 3 sera dirigé par un utilisateur
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "joueur"));
 		}
 		if (boutonOrdi4.isSelected()) {
 			//notifier que le joueur 4 sera dirigé par l'ordi
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "ordi"));
 		}else {
 			//notifier que le joueur 4 sera dirigé par un utilisateur
+			chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "joueur"));
 		}
 		
 		
@@ -96,6 +115,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		if (isPlayerNameOk(joueursNames))
 		{
 			//attribuer les noms des joueurs
+			
 		}
 		else {
 			//message d'erreur
@@ -113,6 +133,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		
 		if (hauteur !=-1 && largeur != -1) {
 			//mettre au dimension
+			
 		}
 		else {
 			//message d'erreur
