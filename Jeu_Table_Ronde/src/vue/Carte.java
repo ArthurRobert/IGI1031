@@ -7,9 +7,7 @@ package vue;
 
 import java.awt.HeadlessException;
 import java.util.ArrayList;
-
 import model.Chevalier;
-import model.FactoryChevalier;
 
 public final class Carte {
 	
@@ -20,11 +18,11 @@ public final class Carte {
 	private int nbCaseX;
 	private int nbCaseY;
 	private float ratio;
-
+	private ArrayList<Chevalier> tabChevalier;
 	private CarteFrame carteFrame;
 
 
-	private static ArrayList<Chevalier> tabChevalier;
+	
 
 
 
@@ -82,12 +80,12 @@ public final class Carte {
 
 
 	public static ArrayList<Chevalier> getTabChevalier() {
-		return tabChevalier;
+		return Carte.AuxQuatresCoinDuMonde.tabChevalier;
 	}
 
 
 	public void setTabChevalier(ArrayList<Chevalier> tabChevalier) {
-		this.tabChevalier = tabChevalier;
+		Carte.AuxQuatresCoinDuMonde.tabChevalier = tabChevalier;
 	}
 	
 	public CarteFrame getCarteFrame() {
