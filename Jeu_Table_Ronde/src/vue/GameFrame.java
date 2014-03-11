@@ -3,7 +3,9 @@
 	import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -93,9 +95,10 @@ public class GameFrame extends JFrame{
 
 		public void setMap(Carte map) {
 			this.map = map;
-			if (map != null)
+			if (map != null){
 			 this.add(map.getCartePanel());
 			this.setVisible(true);
+			}
 		}
 	
 	
