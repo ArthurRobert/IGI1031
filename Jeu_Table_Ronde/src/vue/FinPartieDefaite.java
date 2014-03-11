@@ -12,7 +12,9 @@ import javax.swing.SwingConstants;
 
 public class FinPartieDefaite extends JFrame{
     
-    public FinPartieDefaite(){             
+	private static final long serialVersionUID = 1L;
+
+	public FinPartieDefaite(){             
         this.setTitle("Dommage!");
         this.setSize(400, 400);
         this.setLocationRelativeTo(null);
