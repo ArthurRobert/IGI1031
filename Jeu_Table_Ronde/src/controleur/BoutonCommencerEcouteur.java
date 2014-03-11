@@ -76,31 +76,39 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		if (boutonOrdi1.isSelected()) {
 			//notifier que le joueur 1 sera dirigé par l'ordi
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "ordi"));
+			System.out.println(joueur1.getText() + " dirigé par l'ordi !");
 			
 		}else {
 			//notifier que le joueur 1 sera dirigé par un utilisateur
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "joueur"));
+			System.out.println(joueur1.getText() + " dirigé par un joueur !");
 		}
 		if (boutonOrdi2.isSelected()) {
 			//notifier que le joueur 2 sera dirigé par l'ordi
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "ordi"));
+			System.out.println(joueur2.getText() + " dirigé par l'ordi !");
 		}else {
 			//notifier que le joueur 2 sera dirigé par un utilisateur
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "joueur"));
+			System.out.println(joueur2.getText() + " dirigé par un joueur !");
 		}
 		if (boutonOrdi3.isSelected()) {
 			//notifier que le joueur 3 sera dirigé par l'ordi
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "ordi"));
+			System.out.println(joueur3.getText() + " dirigé par l'ordi !");
 		}else {
 			//notifier que le joueur 3 sera dirigé par un utilisateur
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "joueur"));
+			System.out.println(joueur3.getText() + " dirigé par un joueur !");
 		}
 		if (boutonOrdi4.isSelected()) {
 			//notifier que le joueur 4 sera dirigé par l'ordi
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "ordi"));
+			System.out.println(joueur4.getText() + " dirigé par l'ordi !");
 		}else {
 			//notifier que le joueur 4 sera dirigé par un utilisateur
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "joueur"));
+			System.out.println(joueur4.getText() + " dirigé par un joueur !");
 		}
 		
 		
