@@ -20,7 +20,10 @@ public final class Carte {
 	private int nbCaseX;
 	private int nbCaseY;
 	private float ratio;
+
 	private CarteFrame carteFrame;
+
+
 	private ArrayList<Chevalier> tabChevalier;
 
 
@@ -68,4 +71,31 @@ public final class Carte {
 		else return true;
 	}
 	
+	public float getRatio() {
+		return ratio;
+	}
+
+
+	public void setRatio(float ratio) {
+		this.ratio = ratio;
+	}
+
+
+	public ArrayList<Chevalier> getTabChevalier() {
+		return tabChevalier;
+	}
+
+
+	public void setTabChevalier(ArrayList<Chevalier> tabChevalier) {
+		this.tabChevalier = tabChevalier;
+	}
+	
+	public CarteFrame getCarteFrame() {
+		return carteFrame;
+	}
+
+
+	public void setCarteFrame(CarteFrame carteFrame) {
+		this.carteFrame = carteFrame;
+	}
 }
