@@ -12,11 +12,9 @@ public class NouvellePartie extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	JButton startButton;
-	public Object father;
-	
-	public NouvellePartie(Object o)  {
+
+	public NouvellePartie()  {
 		super("Configurer une nouvelle partie");
-		father = o;
 		this.setSize(600, 370);
 		this.setLayout(new BorderLayout());		
 
@@ -48,8 +46,8 @@ public class NouvellePartie extends JFrame {
 	}
 	
 	public void setMapToFatherPanel(Carte c) {
-		if (father instanceof GameFrame) 
-		((GameFrame)father).setMap(c);
+			GameFrame.getInstance().setMap(c);
 	}
+
 	
 }
