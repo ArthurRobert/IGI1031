@@ -46,7 +46,7 @@ public class CarteFrame extends JFrame{
         eMenuItemNew.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
-               new NouvellePartie();
+               new NouvellePartie(null);
             }
         });
         file.add(eMenuItemNew);
