@@ -158,6 +158,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 			System.out.println("Erreur de dimension");
 			conditionOk = false;
 		}
+	}
 		
 		
 
