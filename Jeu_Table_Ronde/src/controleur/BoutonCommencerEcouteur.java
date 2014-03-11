@@ -188,7 +188,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	/**
 	 * retourne la dimension si elle est correcte, -1 sinon
-	 * elle doit etre comprise entre 2 et 30 (a modifier si besoin)
+	 * elle doit etre comprise entre 4 et 20 (a modifier si besoin)
 	 */
 	private int isDimensionOk(String dimTxt) {
 		
@@ -204,7 +204,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 			return -1;
 		}
 		
-		if (dimension<2 ||dimension > 30) {
+		if (dimension<4 ||dimension > 20) {
 			return -1;
 		}
 		else {
