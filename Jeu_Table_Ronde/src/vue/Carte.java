@@ -19,9 +19,12 @@ public final class Carte {
 	//Attributs
 	private int nbCaseX;
 	private int nbCaseY;
+	private float ratio;
 	private CarteFrame carteFrame;
 	private ArrayList<Chevalier> tabChevalier;
-	
+
+
+
 	//Constructeur
 	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
 		this.nbCaseX = nbCaseX;
@@ -45,12 +48,14 @@ public final class Carte {
 	 * Methode permettant de renvoyer une instance de la classe
 	 * 
 	 */
-	public final static Carte getInstance(int largeur1, int hauteur1){
+	public final static Carte getInstance(int largeur1, int hauteur1, float ratio, ArrayList<Chevalier> c){
 		if (Carte.AuxQuatresCoinDuMonde==null){
 			synchronized(Carte.class){
 				if(Carte.AuxQuatresCoinDuMonde==null)
 				{
 					Carte.AuxQuatresCoinDuMonde= new Carte(largeur1, hauteur1);
+					Carte.AuxQuatresCoinDuMonde.tabChevalier = c;
+					Carte.AuxQuatresCoinDuMonde.ratio = ratio;
 				}
 			}
 		}
@@ -63,8 +68,4 @@ public final class Carte {
 		else return true;
 	}
 	
-	//Creation de Chevalier
-	public void orderChevalier(String nom, String type){
-		Chevalier c=FactoryChevalier.addChevalier(nom, type);
-	}
 }
