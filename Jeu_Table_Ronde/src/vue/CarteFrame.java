@@ -15,7 +15,9 @@ import javax.swing.JMenuItem;
  *
  */
 public class CarteFrame extends JFrame{
-	
+
+	private static final long serialVersionUID = 1L;
+
 	public CarteFrame(int largeur, int hauteur){
 		super("Aux quatre coins du monde");
 		
