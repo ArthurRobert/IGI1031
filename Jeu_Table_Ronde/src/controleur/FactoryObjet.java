@@ -113,16 +113,8 @@ public class FactoryObjet {
 		return o;
 	}
 
-
-
-
-
-
-
-
-
-
-
+	
+	//Getters and Setters
 	public ArrayList<ObjetObstacle> getListeObstacle() {
 		return listeObstacle;
 	}
