@@ -1,19 +1,36 @@
 package testUnitaire;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import junit.framework.TestCase;
 import model.Chevalier;
 import model.ChevalierJoueur;
+import model.Sac;
 
+import org.junit.Before;
 import org.junit.Test;
 
-public class TestChevalierJoueur {
+public class TestChevalierJoueur extends TestCase {
 
-	@Test
-	public void testChevalierJoueur() {
-		Chevalier joueur1 = new ChevalierJoueur("Arthur");
+	private Chevalier joueur1;
+	private Sac sac;
+	
+	@Before
+	protected void setUp() throws Exception{
+		super.setUp();
+		joueur1 = new ChevalierJoueur("Arthur");
+		sac = joueur1.getSacChevalier();
+
+		
+	}
+	
+	public void testChevalierJoueur() throws Exception {
 		assertNotNull(joueur1);
-//        assertThat(joueur1, instanceOf(Chevalier.class));
+
+
+	}
+		
+	public void testSac(){
+		assertNotNull(sac);
+		
 	}
 
 }
