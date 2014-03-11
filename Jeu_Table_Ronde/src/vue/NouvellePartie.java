@@ -17,7 +17,7 @@ public class NouvellePartie extends JFrame {
 	public NouvellePartie(Object o)  {
 		super("Configurer une nouvelle partie");
 		father = o;
-		this.setSize(600, 350);
+		this.setSize(600, 370);
 		this.setLayout(new BorderLayout());		
 
 		JPanel panelSouth = new JPanel();
