@@ -24,7 +24,7 @@ public final class Carte {
 	private CarteFrame carteFrame;
 
 
-	private ArrayList<Chevalier> tabChevalier;
+	private static ArrayList<Chevalier> tabChevalier;
 
 
 
@@ -81,7 +81,7 @@ public final class Carte {
 	}
 
 
-	public ArrayList<Chevalier> getTabChevalier() {
+	public static ArrayList<Chevalier> getTabChevalier() {
 		return tabChevalier;
 	}
 
