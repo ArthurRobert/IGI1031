@@ -11,14 +11,18 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import controleur.FactoryObjet;
+
 public class CartePanel extends JPanel implements ActionListener {
 
-	ArrayList<ArrayList<JButton>> tabLignes = null;	
+	ArrayList<ArrayList<Case>> tabLignes = null;	
 	int largeur;
 	int hauteur;
 	
-	public  CartePanel(int largeur1, int hauteur1) {
+	
+	public  CartePanel(float ratio, int largeur1, int hauteur1) {
 		super();
+		FactoryObjet factoryObjet = new FactoryObjet(ratio, largeur1*hauteur1);
 		this.largeur=largeur1;
 		this.hauteur=hauteur1;
 		this.setLayout(new GridLayout(largeur,hauteur));
@@ -26,13 +30,14 @@ public class CartePanel extends JPanel implements ActionListener {
 		this.setBackground(Color.lightGray);
 		
 		String emplacement="case ";
-		tabLignes = new ArrayList<ArrayList<JButton>>();
+		tabLignes = new ArrayList<ArrayList<Case>>();
 		for(int i=0;i<largeur;i++){
-			ArrayList<JButton> ligneJButton= new ArrayList<JButton>();
+			ArrayList<Case> ligneJButton= new ArrayList<Case>();
 			for(int j=0;j<hauteur;j++){
 				//System.out.println("for");
 				emplacement=""+i+j;
 				Case boutonCase = new Case();
+				boutonCase.setElement(factoryObjet.createObject());
 				boutonCase.setText(emplacement);
 				boutonCase.addActionListener(this);
 				boutonCase.setEnabled(false);
