@@ -1,6 +1,7 @@
 package controleur;
 
 import java.util.ArrayList;
+
 import model.*;
 
 public class FactoryObjet {
@@ -29,12 +30,17 @@ public class FactoryObjet {
 
 
 	//Creation des objets
-	public Objet createObject(String typeObjet) {
+	public Objet createObject() {
 
 		nbCreated++;
 		Objet o = null;
 		//Si on à tiré la moitié de la map on crée un chateau
-		if(nbCreated == sizeMap/2) return o = new Chateau(0);
+		if(nbCreated == sizeMap/2){
+			System.out.println(nbCreated);
+			return o = new Chateau(0);
+			
+		}
+		
 		
 		// On test si il y a plus de place sur la map que de nombre d'objet graal à poser.
 		else if(((sizeMap - nbCreated) >= (DefObjetGraal.length - listeGraal.size())) ){
@@ -63,11 +69,6 @@ public class FactoryObjet {
 		}
 		else{
 			o = createObjectGraal();
-		}
-		//Creation du Chateau
-		if (typeObjet.equals("chateau")){
-			
-
 		}
 
 		return o;
