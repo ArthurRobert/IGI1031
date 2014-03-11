@@ -12,7 +12,9 @@ import javax.swing.SwingConstants;
 
 public class FinPartieVictoire extends JFrame{
     
-    public FinPartieVictoire(){             
+	private static final long serialVersionUID = 1L;
+
+	public FinPartieVictoire(){             
         this.setTitle("Félicitation!");
         this.setSize(400, 400);
         this.setLocationRelativeTo(null);
