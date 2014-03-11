@@ -16,9 +16,11 @@ import controleur.BoutonCommencerEcouteur;
 public class NouvellePartie extends JFrame {
 
 	JButton startButton;
+	public Object father;
 	
-	public NouvellePartie()  {
+	public NouvellePartie(Object o)  {
 		super("Configurer une nouvelle partie");
+		father = o;
 		this.setSize(600, 350);
 		this.setLayout(new BorderLayout());		
 		
