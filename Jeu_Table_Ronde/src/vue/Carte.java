@@ -19,7 +19,7 @@ public final class Carte {
 	private int nbCaseY;
 	private float ratio;
 	private ArrayList<Chevalier> tabChevalier;
-	private CarteFrame carteFrame;
+	private CartePanel cartePanel;
 
 
 	
@@ -30,7 +30,7 @@ public final class Carte {
 	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
 		this.nbCaseX = nbCaseX;
 		this.nbCaseY = nbCaseY;
-		carteFrame = new  CarteFrame(nbCaseX, nbCaseY);
+		cartePanel = new  CartePanel(nbCaseX, nbCaseY);
 		
 	}
 	
@@ -88,12 +88,12 @@ public final class Carte {
 		Carte.AuxQuatresCoinDuMonde.tabChevalier = tabChevalier;
 	}
 	
-	public CarteFrame getCarteFrame() {
-		return carteFrame;
+	public CartePanel getCartePanel() {
+		return cartePanel;
 	}
 
 
-	public void setCarteFrame(CarteFrame carteFrame) {
-		this.carteFrame = carteFrame;
+	public void setCartePanel(CartePanel cartePanel) {
+		this.cartePanel = cartePanel;
 	}
 }
