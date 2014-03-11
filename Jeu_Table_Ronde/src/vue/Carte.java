@@ -27,10 +27,11 @@ public final class Carte {
 
 
 	//Constructeur
-	private Carte(int nbCaseX, int nbCaseY) throws HeadlessException {
+	private Carte(float ratio, int nbCaseX, int nbCaseY) throws HeadlessException {
 		this.nbCaseX = nbCaseX;
 		this.nbCaseY = nbCaseY;
-		cartePanel = new  CartePanel(nbCaseX, nbCaseY);
+		this.ratio = ratio;
+		cartePanel = new  CartePanel(this.ratio, nbCaseX, nbCaseY);
 		
 	}
 	
@@ -54,7 +55,7 @@ public final class Carte {
 			synchronized(Carte.class){
 				if(Carte.AuxQuatresCoinDuMonde==null)
 				{
-					Carte.AuxQuatresCoinDuMonde= new Carte(largeur1, hauteur1);
+					Carte.AuxQuatresCoinDuMonde= new Carte(ratio, largeur1, hauteur1);
 					Carte.AuxQuatresCoinDuMonde.tabChevalier = c;
 					Carte.AuxQuatresCoinDuMonde.ratio = ratio;
 				}
