@@ -65,7 +65,7 @@ public final class Carte {
 		return Carte.AuxQuatresCoinDuMonde;
 	}
 	
-	public boolean isCreated(){
+	public static boolean isCreated(){
 		if (Carte.AuxQuatresCoinDuMonde ==null)
 				return false;
 		else return true;
