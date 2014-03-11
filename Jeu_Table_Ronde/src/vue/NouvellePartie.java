@@ -3,6 +3,7 @@ package vue;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.Locale.Category;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -72,6 +73,11 @@ public class NouvellePartie extends JFrame {
 
 	public void setStartButton(JButton startButton) {
 		this.startButton = startButton;
+	}
+	
+	public void setMatToFatherPanel(Carte c) {
+		if (father instanceof GameFrame) 
+		((GameFrame)father).setMap(c);
 	}
 	
 }
