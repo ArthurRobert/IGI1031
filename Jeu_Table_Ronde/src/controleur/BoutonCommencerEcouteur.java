@@ -23,6 +23,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	private JTextField largeurTf, hauteurTf, joueur1, joueur2, joueur3, joueur4;
 	
 	private JSlider ratioTf;
+	
 	private JRadioButton boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
 	
 	private Object o;
@@ -31,19 +32,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	/**
 	 * Constructeur
-	 * 
-	 * @param ratioTf
-	 * @param largeurTf
-	 * @param hauteurTf
-	 * @param joueur1
-	 * @param joueur2
-	 * @param joueur3
-	 * @param joueur4
-	 * @param boutonOrdi1
-	 * @param boutonOrdi2
-	 * @param boutonOrdi3
-	 * @param boutonOrdi4
-	 * @param o
+	 *
 	 */
 	public BoutonCommencerEcouteur( JSlider ratioTf, JTextField largeurTf,
 			JTextField hauteurTf, JTextField joueur1, JTextField joueur2,
@@ -144,21 +133,19 @@ public class BoutonCommencerEcouteur implements ActionListener {
 					System.out.println(joueur4.getText() + " dirigé par un joueur !");
 				}
 				
-				//mettre au dimension
+				//mettre au dimension, creation de la carte
 				((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
 				((NouvellePartie)o).dispose();
 			}
 			else {
 				//message d'erreur
 				System.out.println("Erreur de dimension");
-				JOptionPane.showMessageDialog(new Frame(), "Erreur de dimension");
 			}
 		}
 		else 
 		{
 			//message d'erreur
 			System.out.println("Erreur de nom de joueur");
-			JOptionPane.showMessageDialog(new Frame(), "Erreur de nom de joueur");
 		}
 	}
 	
@@ -173,13 +160,16 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		//quelques vérifications de base
 		for (String nomJoueur: joueurs) {
 			if (nomJoueur.isEmpty() || nomJoueur==null || nomJoueur.length()>30) {
+				JOptionPane.showMessageDialog(new Frame(), "Vérifier les noms des joueurs");
 				return false;
 			}
 			//les noms doivent être uniques
 			copiListeJoueur.remove(nomJoueur);
 			for (String autreJoueur: copiListeJoueur) {
-				if (nomJoueur.equals(autreJoueur))
+				if (nomJoueur.equals(autreJoueur)){
+					JOptionPane.showMessageDialog(new Frame(), "Nom de joueur en double : "+nomJoueur);
 					return false;
+				}
 			}
 		}
 		// si tout est ok on retourne true
@@ -188,7 +178,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	/**
 	 * retourne la dimension si elle est correcte, -1 sinon
-	 * elle doit etre comprise entre 4 et 20 (a modifier si besoin)
+	 * elle doit etre comprise entre 4 et 15 (a modifier si besoin)
 	 */
 	private int isDimensionOk(String dimTxt) {
 		
@@ -201,10 +191,12 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		catch (NumberFormatException e) 
 		{
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(new Frame(), "Erreur de dimension, format incorrect");
 			return -1;
 		}
 		
-		if (dimension<4 ||dimension > 20) {
+		if (dimension<4 ||dimension > 15) {
+			JOptionPane.showMessageDialog(new Frame(), "Erreur de dimension : les dimensions doivent être comprises entre 4 et 15");
 			return -1;
 		}
 		else {
