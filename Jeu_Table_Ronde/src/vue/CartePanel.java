@@ -2,19 +2,18 @@ package vue;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import controleur.FactoryObjet;
 
 public class CartePanel extends JPanel implements ActionListener {
 
+	private static final long serialVersionUID = 1L;
 	ArrayList<ArrayList<Case>> tabLignes = null;	
 	int largeur;
 	int hauteur;
