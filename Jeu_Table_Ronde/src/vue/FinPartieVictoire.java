@@ -1,6 +1,7 @@
 package vue;
 
 import java.awt.Font;
+import java.io.File;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -17,8 +18,9 @@ public class FinPartieVictoire extends JFrame{
         this.setLocationRelativeTo(null);
 
         Font fonte = new Font("Times New Roman",Font.BOLD,25);
-
-        Icon icon = new ImageIcon("victoire3.jpg");
+		String path = new File("").getAbsolutePath();
+		String pathImage=path+"/src/victoire3.jpg";
+        Icon icon = new ImageIcon(pathImage);
         
         JPanel panel = new JPanel();
         JLabel jLabel1 =new JLabel(icon, SwingConstants.CENTER);
