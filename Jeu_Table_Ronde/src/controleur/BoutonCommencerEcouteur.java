@@ -8,6 +8,8 @@ import java.util.Vector;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import vue.Carte;
+
 import model.Chevalier;
 import model.FactoryChevalier;
 
@@ -21,7 +23,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	private JRadioButton boutonOrdi1, boutonOrdi2, boutonOrdi3, boutonOrdi4 ;
 
-	private Vector<Chevalier> chevalier_vector = new Vector<Chevalier>();
+	private ArrayList<Chevalier> chevalier_vector = new ArrayList<Chevalier>();
 	
 	/**
 	 * Constructeur
@@ -145,10 +147,11 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		//récupération
 		int largeur = isDimensionOk(largeurTf.getText());
 		int hauteur = isDimensionOk(hauteurTf.getText());
+		int ratio = isRatioOk(ratioTf.getText());
 		
-		if (hauteur !=-1 && largeur != -1) {
-			//mettre au dimension
-			
+		if (hauteur !=-1 && largeur != -1 && ratio != -1) {
+						//mettre au dimension
+			Carte.getInstance(hauteur, largeur, ratio, chevalier_vector);
 		}
 		else {
 			//message d'erreur
@@ -157,28 +160,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		}
 		
 		
-		/**
-		 * vérification du ratio
-		 */
-		//récupération
-		int ratio = isRatioOk(ratioTf.getText());
-		
-		if (ratio != -1) {
-			//gérer le ratio
-		}
-		else {
-			//message d'erreur
-			System.out.println("Erreur de ratio");
-			conditionOk = false;
-		}
 
-
-		
-	}
-	
-	/**
-	 * retourne le ratio s'il est correct, -1 sinon
-	 */
 	private int isRatioOk(String ratioTxt) {
 		//critère pour le ratio à déterminer
 		
