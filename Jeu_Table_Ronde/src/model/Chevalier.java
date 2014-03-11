@@ -16,7 +16,7 @@ public class Chevalier {
 	//Constructeur
 	public Chevalier(String unNom){
 		nom=unNom;
-		Sac sacChevalier= new Sac();
+		sacChevalier= new Sac();
 	}
 
 
