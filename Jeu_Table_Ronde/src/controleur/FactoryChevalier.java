@@ -1,6 +1,9 @@
-package model;
+package controleur;
 
-import java.util.ArrayList;
+import model.Chevalier;
+import model.ChevalierJoueur;
+import model.ChevalierOrdi;
+
 
 public class FactoryChevalier {
 	
