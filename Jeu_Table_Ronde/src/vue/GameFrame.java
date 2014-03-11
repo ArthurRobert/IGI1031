@@ -12,6 +12,8 @@
 public class GameFrame extends JFrame{
 	private static final long serialVersionUID = 1812513897512845459L;
 
+	private Carte map=null;
+
 		public GameFrame(){
 			super("Aux quatre coins du monde");
 			
@@ -40,7 +42,7 @@ public class GameFrame extends JFrame{
 	        eMenuItemNew.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
-	               new NouvellePartie();
+	               new NouvellePartie(this);
 	            }
 	        });
 	        file.add(eMenuItemNew);
@@ -60,16 +62,23 @@ public class GameFrame extends JFrame{
 
 	        menubar.add(file);
 	        
-	        
-	        
 	        JMenu aide = new JMenu("?");
 	        JMenuItem eMenuItemRegle = new JMenuItem("Règles");
 	        aide.add(eMenuItemRegle);
 	        menubar.add(aide);
 
-	        this.setJMenuBar(menubar);
-
-			
+	        this.setJMenuBar(menubar);	
 		}
+		
+		
+		public Carte getMap() {
+			return map;
+		}
+
+		public void setMap(Carte map) {
+			this.map = map;
+		}
+	
+	
 
 }
