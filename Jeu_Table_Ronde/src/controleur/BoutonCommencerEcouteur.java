@@ -72,6 +72,18 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		 * Tests du type d'utilisateur
 		 */
 	
+		
+		/**
+		 * Vérification du nom des joueurs
+		 */	
+		//obtention des noms des joueurs
+		String[] joueursNames = {joueur1.getText(), joueur2.getText(), joueur3.getText(), joueur4.getText()};
+
+		//test du nom des joueurs
+		if (isPlayerNameOk(joueursNames))
+		{
+			
+		
 		//Click on boutonOrdi1
 		if (boutonOrdi1.isSelected()) {
 			//notifier que le joueur 1 sera dirigé par l'ordi
@@ -116,18 +128,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 			chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "joueur"));
 			System.out.println(joueur4.getText() + " dirigé par un joueur !");
 		}
-		
-		
-		
-		/**
-		 * Vérification du nom des joueurs
-		 */	
-		//obtention des noms des joueurs
-		String[] joueursNames = {joueur1.getText(), joueur2.getText(), joueur3.getText(), joueur4.getText()};
 
-		//test du nom des joueurs
-		if (isPlayerNameOk(joueursNames))
-		{
 			//attribuer les noms des joueurs
 			
 		}
