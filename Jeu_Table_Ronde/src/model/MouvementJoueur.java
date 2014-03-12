@@ -21,7 +21,7 @@ public class MouvementJoueur implements Mouvement {
 			 carte = Carte.getInstance(0, 0, 0, null);
 		}
 		if (carte!=null){
-			carte.getCartePanel().deplacementPossible(chevalier.getPositionX(), chevalier.getPositionY());
+			carte.getCartePanel().deplacementPossible(chevalier);
 		}
 		return false;
 	}
