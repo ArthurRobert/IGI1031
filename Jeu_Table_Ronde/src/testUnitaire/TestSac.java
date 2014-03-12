@@ -1,5 +1,7 @@
 package testUnitaire;
 
+import java.util.ArrayList;
+
 import junit.framework.TestCase;
 import model.ObjetGraal;
 import model.Sac;
@@ -10,16 +12,35 @@ import org.junit.Test;
 public class TestSac extends TestCase {
 
 	Sac sac;
+	ArrayList<ObjetGraal> contenu;
+	ObjetGraal graal;
 	
 	@Before
 	protected void setUp() throws Exception{
 		super.setUp();
-		// erreur: constructeur en privé donc pas possible de tester
 		sac = new Sac();
+		graal = new ObjetGraal("Graal",0,0);
+		sac.ajoutObjetGraal(graal);
+		contenu = sac.getContenu();
+
 		
 	}
 	@Test
 	public void testConstructeur(){
 		assertNotNull(sac);
 	}
+	
+	public void testAjoutObjetGraal(){
+		assertNotNull(contenu);
+	}
+	
+	public void testViderSac(){
+		sac.viderSac();
+		contenu = sac.getContenu();
+		assertNull(contenu);
+	}
+	
+	
+	
+	
 }
