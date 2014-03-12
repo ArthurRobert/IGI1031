@@ -24,8 +24,6 @@ public class TestChevalierJoueur extends TestCase {
 		joueur1 = new ChevalierJoueur("Arthur");
 		sac = joueur1.getSacChevalier();
 		excalibur = new ObjetGraal("Excalibur", 10, 11);
-		// erreur sur trouverObjet
-	//	joueur1.trouverObjet(excalibur);
 		joueur1.setNivVie(0);
 		niveauDeVie = joueur1.getNivVie();
 		
@@ -36,7 +34,10 @@ public class TestChevalierJoueur extends TestCase {
 		assertNotNull(joueur1);
 	}
 		
-	//erreur lors du test
+	public void testTrouverobjet(){
+		assertNotNull(niveauDeVie);
+	}
+	
 	public void testGetSacChevalierNull(){
 		assertNotNull(sac);
 	}
