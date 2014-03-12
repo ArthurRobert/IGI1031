@@ -172,7 +172,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 				}
 			}
 		}
-		// si tout est ok on retourne true
+		// si tout est ok, on retourne true
 		return true;
 	}
 	

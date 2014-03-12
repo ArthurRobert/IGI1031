@@ -3,9 +3,11 @@ package model;
 public class MouvementJoueur implements Mouvement{
 	
 	@Override
-	public int execute() {
+	public boolean executeMouvement() {
+		
+		
 	
-		return 0;
+		return true;
 	}
 
 }
