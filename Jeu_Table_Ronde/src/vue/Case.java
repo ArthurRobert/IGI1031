@@ -23,7 +23,6 @@ public class Case extends JButton{
 	public Objet getElement() {
 		return element;
 	}
-	@SuppressWarnings("deprecation")
 	public void marquerPositionChevalier(String nomChevalier,Color couleurCase){
 		this.setText(this.getText()+nomChevalier);
 		this.setBackground(couleurCase);
