@@ -31,12 +31,10 @@ public class FactoryObjet {
 
 	//Creation des objets
 	public Objet createObject() {
-
 		nbCreated++;
 		Objet o = null;
 		//Si on à tiré la moitié de la map on crée un chateau
 		if(nbCreated == sizeMap/2){
-			System.out.println(nbCreated);
 			return o = new Chateau(0);
 			
 		}
