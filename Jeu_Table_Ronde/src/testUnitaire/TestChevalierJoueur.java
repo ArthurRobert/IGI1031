@@ -26,6 +26,7 @@ public class TestChevalierJoueur extends TestCase {
 		excalibur = new ObjetGraal("Excalibur", 10, 11);
 		joueur1.setNivVie(0);
 		niveauDeVie = joueur1.getNivVie();
+		System.out.println(niveauDeVie);
 		
 	}
 	
