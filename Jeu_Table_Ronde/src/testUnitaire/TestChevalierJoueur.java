@@ -47,6 +47,7 @@ public class TestChevalierJoueur extends TestCase {
 	public void testGetSacChevalier(){
 		assertSame(excalibur,joueur1.getSacChevalier());
 	}
+	
 	//test des getteurs et setteurs
 	public void testNiveauDeVie(){
 		assertNotNull(niveauDeVie);

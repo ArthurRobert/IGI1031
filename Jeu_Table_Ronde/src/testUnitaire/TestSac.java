@@ -14,8 +14,7 @@ public class TestSac extends TestCase {
 	@Before
 	protected void setUp() throws Exception{
 		super.setUp();
-		// erreur: constructeur en privé donc pas possible de tester
-		//sac = new Sac()
+		sac = new Sac();
 		
 	}
 	@Test
