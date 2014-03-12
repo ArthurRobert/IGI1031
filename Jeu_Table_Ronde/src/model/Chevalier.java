@@ -1,5 +1,7 @@
 package model;
 
+import org.hamcrest.core.IsInstanceOf;
+
 
 
 public class Chevalier {
@@ -17,14 +19,23 @@ public class Chevalier {
 	public Chevalier(String unNom){
 		nom=unNom;
 		sacChevalier= new Sac();
+		nivVie = 100;
 	}
 
 
 
-public void trouverObjet(ObjetGraal o){
-	this.sacChevalier.ajoutObjetGraal(o);
-	this.setNivVie(nivVie+ o.getNbVie());
-	System.out.println("Objet ramassé");
+public void trouverObjet(Objet o){
+	if(o instanceof ObjetGraal){
+		this.sacChevalier.ajoutObjetGraal((ObjetGraal) o);
+		this.setNivVie(nivVie+ o.getNbVie());
+		System.out.println("Objet ramassé");
+	}
+	if(o instanceof ObjetObstacle){
+		this.setNivVie(nivVie+ o.getNbVie());
+		System.out.println("obstacle rencontré");
+
+	}
+	
 }
 
 

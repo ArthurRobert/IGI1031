@@ -1,5 +1,10 @@
 package model;
 
 public interface Mouvement {
-public boolean executeMouvement();
+	
+	public Chevalier chevalier=null;
+
+	
+	public boolean executeMouvement();
+	
 }

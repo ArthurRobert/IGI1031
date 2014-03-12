@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import model.Chevalier;
+
 import controleur.ClickBoutonEcouteur;
 import controleur.FactoryObjet;
 
@@ -19,7 +21,9 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 	int largeur;
 	int hauteur;
 	ArrayList<Case> ligneJButton;
+	Chevalier chev=null;
 	
+
 	public  CartePanel(float ratio, int largeur1, int hauteur1) {
 		super();
 		FactoryObjet factoryObjet = new FactoryObjet(ratio, largeur1*hauteur1);
@@ -40,7 +44,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				boutonCase.setElement(factoryObjet.createObject());
 				boutonCase.setText(emplacement);
 				//boutonCase.addActionListener(ne);
-				boutonCase.addActionListener(new ClickBoutonEcouteur(tabLignes,this));
+				boutonCase.addActionListener(new ClickBoutonEcouteur(this));
 				boutonCase.setEnabled(false);
 				this.add(boutonCase);
 				ligneJButton.add(boutonCase);
@@ -69,8 +73,10 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		 return this.largeur;
 	 }
 	 
-	 public void deplacementPossible(Integer x,Integer y){
-		 
+	 public void deplacementPossible(Chevalier chev){
+		 this.chev=chev;
+		 int PositChevX=chev.getPositionX();
+		 int PositChevY=chev.getPositionY();
 		 
 		 int nbLigne=tabLignes.size();
 		 int nbColonne=tabLignes.get(0).size();
@@ -84,10 +90,10 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		 int numDerniereLigne=nbLigne-1;
 		 int numDerniereColonne=nbColonne-1;
 
-		 if(x==0){
+		 if(PositChevX==0){
 			 
 			 //Corner  top left
-			 if(y==0){
+			 if(PositChevY==0){
 				 tabLignes.get(numDerniereLigne).get(numDerniereColonne).setEnabled(true);
 				 tabLignes.get(numDerniereLigne).get(0).setEnabled(true);
 				 tabLignes.get(numDerniereLigne).get(1).setEnabled(true);
@@ -102,7 +108,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 			 else{
 				 
 				 //Corner top right
-				 if(y==numDerniereColonne){
+				 if(PositChevY==numDerniereColonne){
 					 tabLignes.get(numDerniereLigne).get(numDerniereColonne-1).setEnabled(true);
 					 tabLignes.get(numDerniereLigne).get(numDerniereColonne).setEnabled(true);
 					 tabLignes.get(numDerniereLigne).get(0).setEnabled(true);
@@ -117,20 +123,20 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				 }
 				 else{
 					 // top ligne
-					 for(int i=x;i<=x+1;i++){
-				        	for(int j=y-1;j<=y+1;j++){
+					 for(int i=PositChevX;i<=PositChevX+1;i++){
+				        	for(int j=PositChevY-1;j<=PositChevY+1;j++){
 				        		tabLignes.get(i).get(j).setEnabled(true);
 				        	}//fin for
 				        }//fin for
-					 for(int j=y-1;j<=y+1;j++){
+					 for(int j=PositChevY-1;j<=PositChevY+1;j++){
 			        		tabLignes.get(numDerniereLigne).get(j).setEnabled(true);
 			        	}//fin for
 				 }
 			 }
 		 }
 		 else{
-			 if(x==numDerniereLigne){
-				 if(y==0){
+			 if(PositChevX==numDerniereLigne){
+				 if(PositChevY==0){
 					 //corner bottom left
 					 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne).setEnabled(true);
 					 tabLignes.get(numDerniereLigne-1).get(0).setEnabled(true);
@@ -144,7 +150,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 					 tabLignes.get(0).get(1).setEnabled(true);
 				 }
 				 else{
-					 if(y==numDerniereColonne){
+					 if(PositChevY==numDerniereColonne){
 						//corner bottom right
 						 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne-1).setEnabled(true);
 						 tabLignes.get(numDerniereLigne-1).get(numDerniereColonne).setEnabled(true);
@@ -159,12 +165,12 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 					 }
 					 else{
 						// top ligne
-						 for(int i=x-1;i<x+1;i++){
-					        	for(int j=y-1;j<=y+1;j++){
+						 for(int i=PositChevX-1;i<PositChevX+1;i++){
+					        	for(int j=PositChevY-1;j<=PositChevY+1;j++){
 					        		tabLignes.get(i).get(j).setEnabled(true);
 					        	}//fin for
 					        }//fin for
-						 for(int j=y-1;j<=y+1;j++){
+						 for(int j=PositChevY-1;j<=PositChevY+1;j++){
 				        		tabLignes.get(0).get(j).setEnabled(true);
 				        	}//fin for						 
 					 }
@@ -172,31 +178,31 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				 
 			 }
 			 else{
-				 if(y==0){
-					 for(int i=x-1;i<=x+1;i++){
-				        	for(int j=y;j<=y+1;j++){
+				 if(PositChevY==0){
+					 for(int i=PositChevX-1;i<=PositChevX+1;i++){
+				        	for(int j=PositChevY;j<=PositChevY+1;j++){
 				        		tabLignes.get(i).get(j).setEnabled(true);
 				        	}//fin for
 				        }//fin for
-					 for(int i=x-1;i<=x+1;i++){
+					 for(int i=PositChevX-1;i<=PositChevX+1;i++){
 						 tabLignes.get(i).get(numDerniereColonne).setEnabled(true);
 					 }
 				 }
 				 else{
-					 if(y==numDerniereColonne){
-						 for(int i=x-1;i<=x+1;i++){
-					        	for(int j=y-1;j<y+1;j++){
+					 if(PositChevY==numDerniereColonne){
+						 for(int i=PositChevX-1;i<=PositChevX+1;i++){
+					        	for(int j=PositChevY-1;j<PositChevY+1;j++){
 					        		tabLignes.get(i).get(j).setEnabled(true);
 					        	}//fin for
 					        }//fin for
-						 for(int i=x-1;i<=x+1;i++){
+						 for(int i=PositChevX-1;i<=PositChevX+1;i++){
 							 tabLignes.get(i).get(0).setEnabled(true);
 						 }						 
 					 }
 					 else{
 						 //All other cases
-						 for(int i=x-1;i<=x+1;i++){
-					        	for(int j=y-1;j<=y+1;j++){
+						 for(int i=PositChevX-1;i<=PositChevX+1;i++){
+					        	for(int j=PositChevY-1;j<=PositChevY+1;j++){
 					        		tabLignes.get(i).get(j).setEnabled(true);
 					        	}//fin for
 					        }//fin for 
@@ -204,7 +210,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				 }
 			 }
 		 }
-		 tabLignes.get(x).get(y).setEnabled(false);
+		 tabLignes.get(PositChevX).get(PositChevY).setEnabled(false);
 		 
 	 }
 
@@ -238,6 +244,13 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 
 	public void setLigneJButton(ArrayList<Case> ligneJButton) {
 		this.ligneJButton = ligneJButton;
+	}
+	public Chevalier getChev() {
+		return chev;
+	}
+
+	public void setChev(Chevalier chev) {
+		this.chev = chev;
 	}
 	 
 }

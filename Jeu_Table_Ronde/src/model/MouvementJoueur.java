@@ -1,13 +1,29 @@
 package model;
 
-public class MouvementJoueur implements Mouvement{
+import vue.Carte;
+import controleur.ClickBoutonEcouteur;
+
+public class MouvementJoueur implements Mouvement {
+	Chevalier chevalier;
+	
+	
+	public MouvementJoueur(Chevalier chevalier, ClickBoutonEcouteur click){
+		this.chevalier=chevalier;
+	
+	}
+	
+	
 	
 	@Override
 	public boolean executeMouvement() {
-		
-		
-	
-		return true;
+		Carte carte = null;
+		if (Carte.isCreated()){
+			 carte = Carte.getInstance(0, 0, 0, null);
+		}
+		if (carte!=null){
+			carte.getCartePanel().deplacementPossible(chevalier.getPositionX(), chevalier.getPositionY());
+		}
+		return false;
 	}
 
 }
