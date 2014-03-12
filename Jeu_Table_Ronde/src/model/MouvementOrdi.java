@@ -1,5 +1,9 @@
 package model;
 
+import java.awt.Color;
+
+import vue.Carte;
+
 
 
 public class MouvementOrdi implements Mouvement {
@@ -15,6 +19,14 @@ public class MouvementOrdi implements Mouvement {
 		double mouvOrdiX = ((Math.random()*6)-3); //variable aléatoire de déplacement sur X comprise entre -3 et 3
 		double mouvOrdiY = ((Math.random()*6)-3); //variable aléatoire de déplacement sur Y comprise entre -3 et 3
 
+		Carte carte = null;
+		if (Carte.isCreated()){
+			 carte = Carte.getInstance(0, 0, 0, null);
+		}
+		if (carte!=null){
+			carte.getCartePanel().getTabLignes().get(chevalier.getPositionX()).get(chevalier.getPositionY()).enleverPositionChevalier(chevalier.getNom());
+		}
+		
 		//si mouvOrdiX compris entre -3 et -1, on ajoute -1
 		if (mouvOrdiX < -1) {
 			chevalier.setPositionX(chevalier.getPositionX()-1);
@@ -48,7 +60,9 @@ public class MouvementOrdi implements Mouvement {
 
 		}
 
-
+		if (carte!=null){
+			carte.getCartePanel().getTabLignes().get(chevalier.getPositionX()).get(chevalier.getPositionY()).marquerPositionChevalier(chevalier.getNom(),Color.BLUE);
+		}
 
 		return true;
 	}
