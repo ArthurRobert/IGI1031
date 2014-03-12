@@ -31,29 +31,31 @@ public void actionPerformed(ActionEvent e) {
 	    		System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console
 	    		positionClickX=i;
 	    		positionClickY=j;
+	    		
 	    	}//fin if
     	}
     }
 	
 }
 
-public Integer getPositionX() {
+public Integer getPositionClickX() {
 	return positionClickX;
 }
 
-public void setPositionX(Integer positionX) {
-	this.positionClickX = positionX;
+public void setPositionClickX(Integer positionClickX) {
+	this.positionClickX = positionClickX;
 }
 
-public Integer getPositionY() {
+public Integer getPositionClickY() {
 	return positionClickY;
 }
 
-public void setPositionY(Integer positionY) {
-	this.positionClickY = positionY;
+public void setPositionClickY(Integer positionClickY) {
+	this.positionClickY = positionClickY;
 }
 
-
-
-
+public Integer[] getPositionClick(){
+		Integer[] positionClick = {positionClickX,positionClickY};
+		return positionClick;
+	}
 }
