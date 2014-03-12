@@ -11,6 +11,7 @@ public class Case extends JButton{
 	private static final long serialVersionUID = 1L;
 	int position;
 	Objet element;
+	String numeroCase;
 	
 	public Case() {
 		super();
@@ -24,12 +25,12 @@ public class Case extends JButton{
 		return element;
 	}
 	public void marquerPositionChevalier(String nomChevalier,Color couleurCase){
-	//	this.setText("<html>"+this.getText()+"</br> "+nomChevalier+"</html>");
+		numeroCase=this.getText();
 		this.setText(this.getText()+nomChevalier);
 		this.setBackground(couleurCase);
 	}
 	public void enleverPositionChevalier(String nomChevalier){
-		this.setText(this.getText().replace(nomChevalier,""));
+		this.setText(numeroCase);
 		Color couleurFondDefaut=new Color(238,238,238);
 		this.setBackground(couleurFondDefaut);
 		
