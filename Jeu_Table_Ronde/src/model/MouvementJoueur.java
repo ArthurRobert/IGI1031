@@ -1,13 +1,13 @@
 package model;
 
 import vue.Carte;
-import controleur.ClickBoutonEcouteur;
+
 
 public class MouvementJoueur implements Mouvement {
 	Chevalier chevalier;
 	
 	
-	public MouvementJoueur(Chevalier chevalier, ClickBoutonEcouteur click){
+	public MouvementJoueur(Chevalier chevalier){
 		this.chevalier=chevalier;
 	
 	}

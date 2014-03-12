@@ -1,12 +1,12 @@
 package model;
 
-import controleur.ClickBoutonEcouteur;
+
 
 public class MouvementOrdi implements Mouvement {
 	Chevalier chevalier;
 
 
-	public MouvementOrdi(Chevalier chevalier, ClickBoutonEcouteur click){
+	public MouvementOrdi(Chevalier chevalier){
 		this.chevalier=chevalier;
 
 	}
