@@ -24,7 +24,7 @@ public class Case extends JButton{
 		return element;
 	}
 	public void marquerPositionChevalier(String nomChevalier,Color couleurCase){
-		this.setText(this.getText()+" "+nomChevalier);
+		this.setText("<html>"+this.getText()+"</br> "+nomChevalier+"</html>");
 		this.setBackground(couleurCase);
 	}
 	public void enleverPositionChevalier(String nomChevalier){
