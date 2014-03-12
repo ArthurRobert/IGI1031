@@ -28,7 +28,7 @@ public class Case extends JButton{
 		this.setBackground(couleurCase);
 	}
 	public void enleverPositionChevalier(String nomChevalier){
-		this.setText(this.getText().replace(" "+nomChevalier,""));
+		this.setText(this.getText().replace("<html>"+"</br> "+nomChevalier+"</html>",""));
 		Color couleurFondDefaut=new Color(238,238,238);
 		this.setBackground(couleurFondDefaut);
 		
