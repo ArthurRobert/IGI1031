@@ -76,7 +76,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		//récupération dimension et ratio
 		int largeur = isDimensionOk(largeurTf.getText());
 		int hauteur = isDimensionOk(hauteurTf.getText());
-		int ratio = ratioTf.getValue();
+		float ratio = (float) ((float) ratioTf.getValue()/100.0);
 
 		//test du nom des joueurs
 		if (isPlayerNameOk(joueursNames))
