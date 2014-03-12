@@ -19,7 +19,7 @@ public class TestSac extends TestCase {
 	protected void setUp() throws Exception{
 		super.setUp();
 		sac = new Sac();
-		graal = new ObjetGraal("Graal",0,0);
+		graal = new ObjetGraal("Graal",1,1);
 		sac.ajoutObjetGraal(graal);
 		contenu = sac.getContenu();
 
@@ -32,6 +32,8 @@ public class TestSac extends TestCase {
 	
 	public void testAjoutObjetGraal(){
 		assertNotNull(contenu);
+		//System.out.println(contenu.contains(graal));
+		assertSame(graal,contenu.get(0));
 	}
 	
 	public void testViderSac(){
