@@ -18,7 +18,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 	ArrayList<ArrayList<Case>> tabLignes = null;	
 	int largeur;
 	int hauteur;
-	
+	ArrayList<Case> ligneJButton;
 	
 	public  CartePanel(float ratio, int largeur1, int hauteur1) {
 		super();
@@ -32,7 +32,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		String emplacement="case ";
 		tabLignes = new ArrayList<ArrayList<Case>>();
 		for(int i=0;i<largeur;i++){
-			ArrayList<Case> ligneJButton= new ArrayList<Case>();
+			ligneJButton= new ArrayList<Case>();
 			for(int j=0;j<hauteur;j++){
 				//System.out.println("for");
 				emplacement=""+i+j;
@@ -207,4 +207,37 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		 tabLignes.get(x).get(y).setEnabled(false);
 		 
 	 }
+
+	public ArrayList<ArrayList<Case>> getTabLignes() {
+		return tabLignes;
+	}
+
+	public void setTabLignes(ArrayList<ArrayList<Case>> tabLignes) {
+		this.tabLignes = tabLignes;
+	}
+
+	public int getLargeur() {
+		return largeur;
+	}
+
+	public void setLargeur(int largeur) {
+		this.largeur = largeur;
+	}
+
+	public int getHauteur() {
+		return hauteur;
+	}
+
+	public void setHauteur(int hauteur) {
+		this.hauteur = hauteur;
+	}
+
+	public ArrayList<Case> getLigneJButton() {
+		return ligneJButton;
+	}
+
+	public void setLigneJButton(ArrayList<Case> ligneJButton) {
+		this.ligneJButton = ligneJButton;
+	}
+	 
 }

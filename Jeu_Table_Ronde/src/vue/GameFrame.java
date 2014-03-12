@@ -84,7 +84,7 @@ public class GameFrame extends JFrame{
 	        aide.add(eMenuItemRegle);
 	        menubar.add(aide);
 
-	        final String regles="jh";
+	        final String regles="Le but est de récupérer les 4 objets Graal puis de retourner au château.";
 	        eMenuItemRegle.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
