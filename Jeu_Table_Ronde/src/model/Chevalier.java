@@ -19,6 +19,7 @@ public class Chevalier {
 	public Chevalier(String unNom){
 		nom=unNom;
 		sacChevalier= new Sac();
+		nivVie = 100;
 	}
 
 

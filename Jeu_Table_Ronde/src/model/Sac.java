@@ -25,7 +25,7 @@ public class Sac {
 	 * Fonction pour vider entièrement le sac
 	 * */
 	public void viderSac(){
-		this.contenu.removeAll(getContenu());
+		this.contenu.clear();
 	}
 
 	
