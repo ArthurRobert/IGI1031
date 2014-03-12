@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 	
 public class GameFrame extends JFrame{
 	
@@ -83,6 +84,18 @@ public class GameFrame extends JFrame{
 	        aide.add(eMenuItemRegle);
 	        menubar.add(aide);
 
+	        final String regles="jh";
+	        eMenuItemRegle.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent event) {
+	            	//default title and icon
+	    			JOptionPane.showMessageDialog(gameFrame,
+	    			    regles,"Règles du jeu", JOptionPane.INFORMATION_MESSAGE);
+	    			
+	            }
+	        });
+	    	
+			
 	        this.setJMenuBar(menubar);	
 		}
 		
