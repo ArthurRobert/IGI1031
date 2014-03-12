@@ -136,6 +136,12 @@ public class BoutonCommencerEcouteur implements ActionListener {
 				//mettre au dimension, creation de la carte
 				((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
 				((NouvellePartie)o).dispose();
+				
+				//generation aléatoire des chevaliers
+				for(int i=0; i<chevalier_vector.size();i++){
+					positionDebutChevalier(chevalier_vector.get(i),hauteur, largeur);
+				}
+				
 			}
 			else {
 				//message d'erreur
@@ -172,7 +178,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 				}
 			}
 		}
-		// si tout est ok on retourne true
+		// si tout est ok, on retourne true
 		return true;
 	}
 	
@@ -202,6 +208,32 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		else {
 			return dimension;
 		}
+		
+	}
+	/**
+	 * Methode permettant de générer aléatoirment la position des chevaliers
+	 */
+	public void positionDebutChevalier(Chevalier c, int nbCaseX, int nbCaseY){
+		Carte.isCreated();
+		Carte carte = Carte.getInstance(0, 0, 0, null);
+		
+		int randomX = (int)(Math.random()*nbCaseX);
+		int randomY = (int)(Math.random()*nbCaseX);
+		boolean caseVide=false;
+		if(carte.getCartePanel().getTabLignes().get(randomX).get(randomY).getElement()==null){
+			caseVide=true;
+		}
+		while(caseVide=false){
+			randomX = (int)(Math.random()*nbCaseX);
+			randomY = (int)(Math.random()*nbCaseX);
+			if(carte.getCartePanel().getTabLignes().get(randomX).get(randomY).getElement()==null){
+				caseVide=true;
+			}
+		}
+		c.setPositionX(randomX);
+		c.setPositionY(randomY);
+		
+		System.out.println("position du chevalier: "+c.getPositionX()+c.getPositionY());
 		
 	}
 
