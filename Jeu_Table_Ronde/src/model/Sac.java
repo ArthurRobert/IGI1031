@@ -6,7 +6,7 @@ public class Sac {
 	private int poids; 
 	private ArrayList<ObjetGraal> contenu;
 
-	Sac(){	
+	public Sac(){	
 		poids = 0;
 		contenu = new ArrayList<ObjetGraal>();
 		System.out.println("sac cree");
