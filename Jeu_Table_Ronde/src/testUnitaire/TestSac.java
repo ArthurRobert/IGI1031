@@ -14,6 +14,7 @@ public class TestSac extends TestCase {
 	Sac sac;
 	ArrayList<ObjetGraal> contenu;
 	ObjetGraal graal;
+	Integer poids;
 	
 	@Before
 	protected void setUp() throws Exception{
@@ -22,9 +23,9 @@ public class TestSac extends TestCase {
 		graal = new ObjetGraal("Graal",1,1);
 		sac.ajoutObjetGraal(graal);
 		contenu = sac.getContenu();
-
-		
+		poids= sac.getPoids();
 	}
+	
 	@Test
 	public void testConstructeur(){
 		assertNotNull(sac);
@@ -39,7 +40,17 @@ public class TestSac extends TestCase {
 	public void testViderSac(){
 		sac.viderSac();
 		contenu = sac.getContenu();
-		assertNull(contenu);
+		assertTrue(contenu.isEmpty());
+	}
+	
+	public void getPoids(){
+		assertNotNull(poids);		
+	}
+	
+	public void setPoids(){
+		sac.setPoids(22);
+		poids=sac.getPoids();
+		assertSame(22,poids);
 	}
 	
 	

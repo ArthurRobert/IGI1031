@@ -41,6 +41,7 @@ public class TestChevalierJoueur extends TestCase {
 	
 	public void testGetSacChevalierNull(){
 		assertNotNull(sac);
+		assertSame(sac,joueur1.getSacChevalier());
 	}
 	
 	public void testObjet(){
