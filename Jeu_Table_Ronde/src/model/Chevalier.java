@@ -87,5 +87,12 @@ public void trouverObjet(ObjetGraal o){
 	public void setMouvement(Mouvement mouvement) {
 		this.mouvement = mouvement;
 	}
+	
+	public Integer[] getPosition(){
+		
+		Integer[] position = {positionX,positionY};
+		return position;
+		
+		}
+	}
 
-}

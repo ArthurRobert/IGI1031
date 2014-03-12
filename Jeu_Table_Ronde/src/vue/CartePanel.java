@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import controleur.ClickBoutonEcouteur;
 import controleur.FactoryObjet;
 
-public class CartePanel extends JPanel implements ActionListener {
+public class CartePanel extends JPanel /*implements ActionListener*/ {
 
 	private static final long serialVersionUID = 1L;
 	ArrayList<ArrayList<Case>> tabLignes = null;	
@@ -38,7 +39,8 @@ public class CartePanel extends JPanel implements ActionListener {
 				Case boutonCase = new Case();
 				boutonCase.setElement(factoryObjet.createObject());
 				boutonCase.setText(emplacement);
-				boutonCase.addActionListener(this);
+				//boutonCase.addActionListener(ne);
+				boutonCase.addActionListener(new ClickBoutonEcouteur(tabLignes,this));
 				boutonCase.setEnabled(false);
 				this.add(boutonCase);
 				ligneJButton.add(boutonCase);
@@ -47,8 +49,8 @@ public class CartePanel extends JPanel implements ActionListener {
 		}
 		
 	}//fin constructeur
-
-	 public  void    actionPerformed(ActionEvent e){
+/*
+	public  void    actionPerformed(ActionEvent e){
 	        Object  source=e.getSource();
 	        
 	       //On cherche sur quel bouton l'utilisateur a cliqué
@@ -61,7 +63,7 @@ public class CartePanel extends JPanel implements ActionListener {
 	        	}//fin for
 	        }//fin for
 	 
-	 }//fin actionPerformed
+	 }//fin actionPerformed*/
 	 
 	 public int  getNbCaseX(){
 		 return this.largeur;
