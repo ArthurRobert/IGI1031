@@ -1,5 +1,6 @@
 package controleur;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 import model.Chevalier;
-
 import vue.CartePanel;
 import vue.Case;
 
@@ -30,8 +30,10 @@ public ClickBoutonEcouteur(CartePanel cartePan) {
 	    	for(int j=0;j<tabLignes.get(0).size();j++){
 		    	if(source==tabLignes.get(i).get(j)){
 		    		System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console
+		    		tabLignes.get(i).get(j).enleverPositionChevalier(chev.getNom());	    		
 		    		chev.setPositionX(i);
 		    		chev.setPositionY(j);
+		    		tabLignes.get(i).get(j).marquerPositionChevalier(chev.getNom(), Color.blue);
 		    	}//fin if
 	    	}
 	    }
