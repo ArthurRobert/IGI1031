@@ -23,6 +23,7 @@ public class Chevalier {
 
 public void trouverObjet(ObjetGraal o){
 	this.sacChevalier.ajoutObjetGraal(o);
+	this.setNivVie(nivVie+ o.getNbVie());
 	System.out.println("Objet ramassé");
 }
 
@@ -86,5 +87,12 @@ public void trouverObjet(ObjetGraal o){
 	public void setMouvement(Mouvement mouvement) {
 		this.mouvement = mouvement;
 	}
+	
+	public Integer[] getPosition(){
+		
+		Integer[] position = {positionX,positionY};
+		return position;
+		
+		}
+	}
 
-}

@@ -6,28 +6,53 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
+import vue.CartePanel;
+import vue.Case;
+
 public class ClickBoutonEcouteur implements ActionListener{
 
-	ArrayList<JButton> tabButton;
+	ArrayList<ArrayList<Case>> tabLignes = null;
+	CartePanel cartePan;
+	Integer positionClickX, positionClickY;
 
-
-public ClickBoutonEcouteur(ArrayList<JButton> tabButton) {
+public ClickBoutonEcouteur(ArrayList<ArrayList<Case>> tabLignes, CartePanel cartePan) {
 		super();
-		this.tabButton = tabButton;
+		this.tabLignes = tabLignes;
+		this.cartePan = cartePan;
 	}
 
 @Override
 public void actionPerformed(ActionEvent e) {
     Object  source=e.getSource();
-    
     //On cherche sur quel bouton l'utilisateur a cliqué
-    for(int i=0;i<tabButton.size();i++){
-    	if(source==tabButton.get(i)){
-    		System.out.println(tabButton.get(i).getText()); //affichage du numéro de case dans la console
-    	}//fin if
+    for(int i=0;i<tabLignes.size();i++){
+    	for(int j=0;j<tabLignes.get(0).size();j++){
+	    	if(source==tabLignes.get(i).get(j)){
+	    		System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console
+	    		positionClickX=i;
+	    		positionClickY=j;
+	    	}//fin if
+    	}
     }
 	
 }
+
+public Integer getPositionX() {
+	return positionClickX;
+}
+
+public void setPositionX(Integer positionX) {
+	this.positionClickX = positionX;
+}
+
+public Integer getPositionY() {
+	return positionClickY;
+}
+
+public void setPositionY(Integer positionY) {
+	this.positionClickY = positionY;
+}
+
 
 
 

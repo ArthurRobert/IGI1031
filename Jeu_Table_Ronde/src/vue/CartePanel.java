@@ -9,15 +9,16 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
+import controleur.ClickBoutonEcouteur;
 import controleur.FactoryObjet;
 
-public class CartePanel extends JPanel implements ActionListener {
+public class CartePanel extends JPanel /*implements ActionListener*/ {
 
 	private static final long serialVersionUID = 1L;
 	ArrayList<ArrayList<Case>> tabLignes = null;	
 	int largeur;
 	int hauteur;
-	
+	ArrayList<Case> ligneJButton;
 	
 	public  CartePanel(float ratio, int largeur1, int hauteur1) {
 		super();
@@ -31,14 +32,15 @@ public class CartePanel extends JPanel implements ActionListener {
 		String emplacement="case ";
 		tabLignes = new ArrayList<ArrayList<Case>>();
 		for(int i=0;i<largeur;i++){
-			ArrayList<Case> ligneJButton= new ArrayList<Case>();
+			ligneJButton= new ArrayList<Case>();
 			for(int j=0;j<hauteur;j++){
 				//System.out.println("for");
 				emplacement=""+i+j;
 				Case boutonCase = new Case();
 				boutonCase.setElement(factoryObjet.createObject());
 				boutonCase.setText(emplacement);
-				boutonCase.addActionListener(this);
+				//boutonCase.addActionListener(ne);
+				boutonCase.addActionListener(new ClickBoutonEcouteur(tabLignes,this));
 				boutonCase.setEnabled(false);
 				this.add(boutonCase);
 				ligneJButton.add(boutonCase);
@@ -47,8 +49,8 @@ public class CartePanel extends JPanel implements ActionListener {
 		}
 		
 	}//fin constructeur
-
-	 public  void    actionPerformed(ActionEvent e){
+/*
+	public  void    actionPerformed(ActionEvent e){
 	        Object  source=e.getSource();
 	        
 	       //On cherche sur quel bouton l'utilisateur a cliqué
@@ -61,7 +63,7 @@ public class CartePanel extends JPanel implements ActionListener {
 	        	}//fin for
 	        }//fin for
 	 
-	 }//fin actionPerformed
+	 }//fin actionPerformed*/
 	 
 	 public int  getNbCaseX(){
 		 return this.largeur;
@@ -205,4 +207,37 @@ public class CartePanel extends JPanel implements ActionListener {
 		 tabLignes.get(x).get(y).setEnabled(false);
 		 
 	 }
+
+	public ArrayList<ArrayList<Case>> getTabLignes() {
+		return tabLignes;
+	}
+
+	public void setTabLignes(ArrayList<ArrayList<Case>> tabLignes) {
+		this.tabLignes = tabLignes;
+	}
+
+	public int getLargeur() {
+		return largeur;
+	}
+
+	public void setLargeur(int largeur) {
+		this.largeur = largeur;
+	}
+
+	public int getHauteur() {
+		return hauteur;
+	}
+
+	public void setHauteur(int hauteur) {
+		this.hauteur = hauteur;
+	}
+
+	public ArrayList<Case> getLigneJButton() {
+		return ligneJButton;
+	}
+
+	public void setLigneJButton(ArrayList<Case> ligneJButton) {
+		this.ligneJButton = ligneJButton;
+	}
+	 
 }
