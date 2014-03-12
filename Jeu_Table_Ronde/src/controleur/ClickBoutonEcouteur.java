@@ -13,7 +13,7 @@ public class ClickBoutonEcouteur implements ActionListener{
 
 	ArrayList<ArrayList<Case>> tabLignes = null;
 	CartePanel cartePan;
-
+	Integer positionClickX, positionClickY;
 
 public ClickBoutonEcouteur(ArrayList<ArrayList<Case>> tabLignes, CartePanel cartePan) {
 		super();
@@ -29,12 +29,30 @@ public void actionPerformed(ActionEvent e) {
     	for(int j=0;j<tabLignes.get(0).size();j++){
 	    	if(source==tabLignes.get(i).get(j)){
 	    		System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console
-	    		cartePan.deplacementPossible(i, j);
+	    		positionClickX=i;
+	    		positionClickY=j;
 	    	}//fin if
     	}
     }
 	
 }
+
+public Integer getPositionX() {
+	return positionClickX;
+}
+
+public void setPositionX(Integer positionX) {
+	this.positionClickX = positionX;
+}
+
+public Integer getPositionY() {
+	return positionClickY;
+}
+
+public void setPositionY(Integer positionY) {
+	this.positionClickY = positionY;
+}
+
 
 
 
