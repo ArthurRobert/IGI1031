@@ -24,7 +24,8 @@ public class Chevalier {
 
 
 
-public void trouverObjet(Objet o){
+public boolean trouverObjet(Objet o){
+	boolean victoire = false;
 	if(o instanceof ObjetGraal){
 		this.sacChevalier.ajoutObjetGraal((ObjetGraal) o);
 		this.setNivVie(nivVie+ o.getNbVie());
@@ -35,7 +36,10 @@ public void trouverObjet(Objet o){
 		System.out.println("obstacle rencontré");
 
 	}
-	
+	if(o instanceof Chateau && this.sacChevalier.getContenu().size() == 4 && this.nivVie>0 ){
+		victoire = true;
+	}
+	return victoire;
 }
 
 
