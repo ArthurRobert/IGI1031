@@ -11,6 +11,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 import vue.Carte;
+import vue.CartePanel;
 import vue.NouvellePartie;
 import model.Chevalier;
 
@@ -77,6 +78,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		int largeur = isDimensionOk(largeurTf.getText());
 		int hauteur = isDimensionOk(hauteurTf.getText());
 		float ratio = (float) ((float) ratioTf.getValue()/100.0);
+		Carte carte;
 
 		//test du nom des joueurs
 		if (isPlayerNameOk(joueursNames))
@@ -133,14 +135,26 @@ public class BoutonCommencerEcouteur implements ActionListener {
 					System.out.println(joueur4.getText() + " dirigé par un joueur !");
 				}
 				
+				//test si la carte existe
+				if(Carte.isCreated()){
+					System.out.println("carte déjà créée");
+					carte = Carte.getInstance(hauteur, largeur, ratio, chevalier_vector);
+					carte.setRatio(ratio);
+					carte.setTabChevalier(chevalier_vector);
+					CartePanel cartePanel=new CartePanel(ratio, largeur, hauteur);
+					carte.setCartePanel(cartePanel);
+					carte.getCartePanel().repaint();
+					
+				}
+				//si la carte n'existe pas creation de la garte
 				//mettre au dimension, creation de la carte
 				((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
-				((NouvellePartie)o).dispose();
+				carte= Carte.getInstance(0, 0, 0, null);
 				
-			//	//generation aléatoire des chevaliers
-			//	for(int i=0; i<chevalier_vector.size();i++){
-			//		positionDebutChevalier(chevalier_vector.get(i),hauteur, largeur);
-			//	}
+				//for(int i=0; i<carte.getTabChevalier().size();i++){
+				//	positionDebutChevalier(chevalier_vector.get(i));
+				//}
+				((NouvellePartie)o).dispose();	
 				
 			}
 			else {
@@ -210,5 +224,32 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		}
 		
 	}
+	/**
+	 * Methode permettant de générer aléatoirment la position des chevaliers
+	 */
+	/*public void positionDebutChevalier(Chevalier c){
+		Carte.isCreated();
+		Carte carte = Carte.getInstance(0, 0, 0, null);
+		int nbCaseX=carte.getCartePanel().getTabLignes().size();
+		int nbCaseY=carte.getCartePanel().getTabLignes().get(0).size();
+		int randomX = (int)(Math.random()*nbCaseX);
+		int randomY = (int)(Math.random()*nbCaseY);
+		boolean caseVide=false;
+		if(carte.getCartePanel().getTabLignes().get(randomX).get(randomY).getElement()==null){
+			caseVide=true;
+		}
+		while(caseVide=false){
+			randomX = (int)(Math.random()*nbCaseX);
+			randomY = (int)(Math.random()*nbCaseX);
+			if(carte.getCartePanel().getTabLignes().get(randomX).get(randomY).getElement()==null){
+				caseVide=true;
+			}
+		}
+		c.setPositionX(randomX);
+		c.setPositionY(randomY);
+		
+		System.out.println("position du chevalier"+c.getNom()+": "+c.getPositionX()+c.getPositionY());
+		
+	}*/
 
 }
