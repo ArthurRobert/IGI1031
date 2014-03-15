@@ -29,11 +29,12 @@ public ClickBoutonEcouteur(CartePanel cartePan) {
 	    for(int i=0;i<tabLignes.size();i++){
 	    	for(int j=0;j<tabLignes.get(0).size();j++){
 		    	if(source==tabLignes.get(i).get(j)){
-		    		System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console
-		    		tabLignes.get(i).get(j).enleverPositionChevalier(chev.getNom());	    		
+		    		//System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console		    		
+		    		tabLignes.get(chev.getPositionX()).get(chev.getPositionY()).enleverPositionChevalier(chev.getNom());	    		
 		    		chev.setPositionX(i);
 		    		chev.setPositionY(j);
 		    		tabLignes.get(i).get(j).marquerPositionChevalier(chev.getNom(), Color.blue);
+		    		cartePan.deplacementPossible(chev);
 		    	}//fin if
 	    	}
 	    }

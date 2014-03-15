@@ -33,7 +33,7 @@ public class FactoryObjet {
 	public Objet createObject() {
 		nbCreated++;
 		Objet o = null;
-		//Si on à tiré la moitié de la map on crée un chateau
+		//Si on à tiré la moitié de la map on crée un chateau: Chateau en position centrale
 		if(nbCreated == sizeMap/2){
 			return o = new Chateau(0);
 			

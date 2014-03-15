@@ -11,6 +11,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 import vue.Carte;
+import vue.CartePanel;
 import vue.NouvellePartie;
 import model.Chevalier;
 
@@ -77,6 +78,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		int largeur = isDimensionOk(largeurTf.getText());
 		int hauteur = isDimensionOk(hauteurTf.getText());
 		float ratio = (float) ((float) ratioTf.getValue()/100.0);
+		Carte carte;
 
 		//test du nom des joueurs
 		if (isPlayerNameOk(joueursNames))
@@ -91,56 +93,68 @@ public class BoutonCommencerEcouteur implements ActionListener {
 				//Click on boutonOrdi1
 				if (boutonOrdi1.isSelected()) {
 					//notifier que le joueur 1 sera dirigé par l'ordi
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "ordi"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur1.getText(), "ordi"));
 					System.out.println(joueur1.getText() + " dirigé par l'ordi !");
 					
 				}else {
 					//notifier que le joueur 1 sera dirigé par un utilisateur
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur1.getText(), "joueur"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur1.getText(), "joueur"));
 					System.out.println(joueur1.getText() + " dirigé par un joueur !");
 				}
 				
 				//Click on boutonOrdi2
 				if (boutonOrdi2.isSelected()) {
 					//notifier que le joueur 2 sera dirigé par l'ordi
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "ordi"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur2.getText(), "ordi"));
 					System.out.println(joueur2.getText() + " dirigé par l'ordi !");
 				}else {
 					//notifier que le joueur 2 sera dirigé par un utilisateur
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur2.getText(), "joueur"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur2.getText(), "joueur"));
 					System.out.println(joueur2.getText() + " dirigé par un joueur !");
 				}
 				
 				//Click on boutonOrdi3
 				if (boutonOrdi3.isSelected()) {
 					//notifier que le joueur 3 sera dirigé par l'ordi
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "ordi"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur3.getText(), "ordi"));
 					System.out.println(joueur3.getText() + " dirigé par l'ordi !");
 				}else {
 					//notifier que le joueur 3 sera dirigé par un utilisateur
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur3.getText(), "joueur"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur3.getText(), "joueur"));
 					System.out.println(joueur3.getText() + " dirigé par un joueur !");
 				}
 				
 				//Click on boutonOrdi4
 				if (boutonOrdi4.isSelected()) {
 					//notifier que le joueur 4 sera dirigé par l'ordi
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "ordi"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur4.getText(), "ordi"));
 					System.out.println(joueur4.getText() + " dirigé par l'ordi !");
 				}else {
 					//notifier que le joueur 4 sera dirigé par un utilisateur
-					chevalier_vector.add(FactoryChevalier.addChevalier(joueur4.getText(), "joueur"));
+					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur4.getText(), "joueur"));
 					System.out.println(joueur4.getText() + " dirigé par un joueur !");
 				}
 				
+				//test si la carte existe
+				if(Carte.isCreated()){
+					System.out.println("carte déjà créée");
+					carte = Carte.getInstance(hauteur, largeur, ratio, chevalier_vector);
+					carte.setRatio(ratio);
+					carte.setTabChevalier(chevalier_vector);
+					CartePanel cartePanel=new CartePanel(ratio, largeur, hauteur);
+					carte.setCartePanel(cartePanel);
+					carte.getCartePanel().repaint();
+					
+				}
+				//si la carte n'existe pas creation de la garte
 				//mettre au dimension, creation de la carte
 				((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
-				((NouvellePartie)o).dispose();
+				carte= Carte.getInstance(0, 0, 0, null);
 				
-				//generation aléatoire des chevaliers
-				for(int i=0; i<chevalier_vector.size();i++){
-					positionDebutChevalier(chevalier_vector.get(i),hauteur, largeur);
-				}
+				//for(int i=0; i<carte.getTabChevalier().size();i++){
+				//	positionDebutChevalier(chevalier_vector.get(i));
+				//}
+				((NouvellePartie)o).dispose();	
 				
 			}
 			else {
@@ -213,12 +227,13 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	/**
 	 * Methode permettant de générer aléatoirment la position des chevaliers
 	 */
-	public void positionDebutChevalier(Chevalier c, int nbCaseX, int nbCaseY){
+	/*public void positionDebutChevalier(Chevalier c){
 		Carte.isCreated();
 		Carte carte = Carte.getInstance(0, 0, 0, null);
-		
+		int nbCaseX=carte.getCartePanel().getTabLignes().size();
+		int nbCaseY=carte.getCartePanel().getTabLignes().get(0).size();
 		int randomX = (int)(Math.random()*nbCaseX);
-		int randomY = (int)(Math.random()*nbCaseX);
+		int randomY = (int)(Math.random()*nbCaseY);
 		boolean caseVide=false;
 		if(carte.getCartePanel().getTabLignes().get(randomX).get(randomY).getElement()==null){
 			caseVide=true;
@@ -233,8 +248,8 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		c.setPositionX(randomX);
 		c.setPositionY(randomY);
 		
-		System.out.println("position du chevalier: "+c.getPositionX()+c.getPositionY());
+		System.out.println("position du chevalier"+c.getNom()+": "+c.getPositionX()+c.getPositionY());
 		
-	}
+	}*/
 
 }

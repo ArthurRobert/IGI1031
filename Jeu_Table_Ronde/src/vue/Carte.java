@@ -31,8 +31,7 @@ public final class Carte {
 		this.nbCaseX = nbCaseX;
 		this.nbCaseY = nbCaseY;
 		this.ratio = ratio;
-		cartePanel = new  CartePanel(this.ratio, nbCaseX, nbCaseY);
-		
+		cartePanel = new  CartePanel(this.ratio, nbCaseX, nbCaseY);		
 	}
 	
 	

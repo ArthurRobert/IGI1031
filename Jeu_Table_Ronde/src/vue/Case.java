@@ -12,9 +12,12 @@ public class Case extends JButton{
 	int position;
 	Objet element;
 	String numeroCase;
+	Color couleurFondDefaut;
 	
 	public Case() {
 		super();
+		this.couleurFondDefaut=this.getBackground();
+
 	}
 
 	public void setElement(Objet element) {
@@ -26,12 +29,11 @@ public class Case extends JButton{
 	}
 	public void marquerPositionChevalier(String nomChevalier,Color couleurCase){
 		numeroCase=this.getText();
-		this.setText(this.getText()+nomChevalier);
+		this.setText(nomChevalier);
 		this.setBackground(couleurCase);
 	}
 	public void enleverPositionChevalier(String nomChevalier){
 		this.setText(numeroCase);
-		Color couleurFondDefaut=new Color(238,238,238);
 		this.setBackground(couleurFondDefaut);
 		
 	}
