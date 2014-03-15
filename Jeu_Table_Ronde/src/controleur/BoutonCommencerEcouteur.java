@@ -148,8 +148,14 @@ public class BoutonCommencerEcouteur implements ActionListener {
 				}
 				//si la carte n'existe pas creation de la garte
 				//mettre au dimension, creation de la carte
-				((NouvellePartie)o).setMapToFatherPanel(Carte.getInstance(hauteur, largeur, ratio, chevalier_vector));
-				carte= Carte.getInstance(0, 0, 0, null);
+				if(!Carte.isCreated()){
+					carte=Carte.getInstance(largeur, hauteur, ratio, chevalier_vector);
+					((NouvellePartie)o).setMapToFatherPanel(carte);
+				}
+				else{
+					carte=Carte.newMap(largeur, hauteur, ratio, chevalier_vector);
+					((NouvellePartie)o).setMapToFatherPanel(carte);
+				}
 				
 				//for(int i=0; i<carte.getTabChevalier().size();i++){
 				//	positionDebutChevalier(chevalier_vector.get(i));
