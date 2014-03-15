@@ -50,7 +50,7 @@ public final class Carte {
 	 * 
 	 */
 	public final static Carte getInstance(int largeur1, int hauteur1, float ratio, ArrayList<Chevalier> c){
-		if (Carte.AuxQuatresCoinDuMonde==null){
+		//if (Carte.AuxQuatresCoinDuMonde==null){
 			synchronized(Carte.class){
 				if(Carte.AuxQuatresCoinDuMonde==null)
 				{
@@ -59,7 +59,7 @@ public final class Carte {
 					Carte.AuxQuatresCoinDuMonde.ratio = ratio;
 				}
 			}
-		}
+		//}
 		return Carte.AuxQuatresCoinDuMonde;
 	}
 	
@@ -95,5 +95,14 @@ public final class Carte {
 
 	public void setCartePanel(CartePanel cartePanel) {
 		this.cartePanel = cartePanel;
+	}
+	
+	public final static Carte newMap(int largeur1, int hauteur1, float ratio, ArrayList<Chevalier> c){
+			synchronized(Carte.class){
+			Carte.AuxQuatresCoinDuMonde= new Carte(ratio, largeur1, hauteur1);
+			Carte.AuxQuatresCoinDuMonde.tabChevalier = c;
+			Carte.AuxQuatresCoinDuMonde.ratio = ratio;
+		}
+		return Carte.AuxQuatresCoinDuMonde;
 	}
 }
