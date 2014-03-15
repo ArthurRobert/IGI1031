@@ -1,5 +1,7 @@
 package model;
 
+import javax.swing.plaf.SliderUI;
+
 import vue.Carte;
 
 
@@ -16,6 +18,10 @@ public class MouvementJoueur implements Mouvement {
 	
 	@Override
 	public boolean executeMouvement() {
+		int x,y;
+		x = chevalier.getPositionX();
+		y = chevalier.getPositionY();
+		
 		Carte carte = null;
 		if (Carte.isCreated()){
 			 carte = Carte.getInstance(0, 0, 0, null);
@@ -23,7 +29,9 @@ public class MouvementJoueur implements Mouvement {
 		if (carte!=null){
 			carte.getCartePanel().deplacementPossible(chevalier);
 		}
-		return false;
+		while(chevalier.getPositionX()==x && chevalier.getPositionY()==y);
+			
+		return true;
 	}
 
 }
