@@ -25,6 +25,7 @@ public class TestBoutonCommencerEcouteur extends TestCase{
 	
 	BoutonCommencerEcouteur ecouteur;
 	Boolean bool;
+	String dimTxt;
 		
 		@Before
 		protected void setUp() throws Exception{
@@ -38,6 +39,7 @@ public class TestBoutonCommencerEcouteur extends TestCase{
 			joueurs.add("joueur2");
 			joueurs.add("joueur3");
 			joueurs.add("joueur4");
+			dimTxt="10";
 
 		}
 		
@@ -47,13 +49,22 @@ public class TestBoutonCommencerEcouteur extends TestCase{
 		}
 		
 		public void testIsPlayerNameOk(){
-			//méthode en privée impossible de tester
+			//passage de la méthode en public pour les tests
 			//bool = ecouteur.isPlayerNameOk(joueurs);
 			//assertTrue(bool);
 		}
+		
+		public void testIsPlayerNameOkFalse(){
+			//passage de la méthode en public pour les tests
+			//joueurs.add("joueur1");
+			//bool = ecouteur.isPlayerNameOk(joueurs);
+			//assertFalse(bool);
+		}
 
 		public void testIsDimensionOk(){
-			//méthode privée impossible de tester
+			//passage de la méthode en public pour les tests
+			//int a=ecouteur.isDimensionOk(dimTxt);
+			//assertSame(a,10);
 		}
 
 
