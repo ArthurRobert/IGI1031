@@ -43,6 +43,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				Case boutonCase = new Case();
 				boutonCase.setElement(factoryObjet.createObject());
 				boutonCase.setText(emplacement);
+				boutonCase.setNumeroCase(emplacement);
 				//boutonCase.addActionListener(ne);
 				boutonCase.addActionListener(new ClickBoutonEcouteur(this));
 				boutonCase.setEnabled(false);
