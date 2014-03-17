@@ -79,7 +79,7 @@ public final class Carte {
 	}
 
 
-	public static ArrayList<Chevalier> getTabChevalier() {
+	public ArrayList<Chevalier> getTabChevalier() {
 		return Carte.AuxQuatresCoinDuMonde.tabChevalier;
 	}
 

@@ -22,7 +22,6 @@ public class MouvementJoueur implements Mouvement {
 		if (carte!=null){
 			x= chevalier.getPositionX();
 			y=chevalier.getPositionY();
-			System.out.println(x+"     "+y+"    test");
 			carte.getCartePanel().deplacementPossible(chevalier);
 			
 			while ((chevalier.getPositionX()==x) && (y==chevalier.getPositionY())){
