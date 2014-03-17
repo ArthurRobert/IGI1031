@@ -87,7 +87,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		        	tabLignes.get(i).get(j).setEnabled(false);
 	        	}//fin for
 	        }//fin for
-		 
+		 tabLignes.get(PositChevX).get(PositChevY).marquerPositionChevalier(chev.getNom(),Color.blue);
 		 int numDerniereLigne=nbLigne-1;
 		 int numDerniereColonne=nbColonne-1;
 
