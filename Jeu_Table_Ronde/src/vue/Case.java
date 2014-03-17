@@ -13,7 +13,16 @@ public class Case extends JButton{
 	Objet element;
 	String numeroCase;
 	Color couleurFondDefaut;
+	Boolean estOccupe = false;
 	
+	public Boolean getEstOccupe() {
+		return estOccupe;
+	}
+
+	public void setEstOccupe(Boolean estOccupe) {
+		this.estOccupe = estOccupe;
+	}
+
 	public Case() {
 		super();
 		this.couleurFondDefaut=this.getBackground();
