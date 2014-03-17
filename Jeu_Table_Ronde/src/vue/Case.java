@@ -37,4 +37,14 @@ public class Case extends JButton{
 		this.setBackground(couleurFondDefaut);
 		
 	}
+
+	public String getNumeroCase() {
+		return numeroCase;
+	}
+
+	public void setNumeroCase(String numeroCase) {
+		this.numeroCase = numeroCase;
+	}
+	
+	
 }
