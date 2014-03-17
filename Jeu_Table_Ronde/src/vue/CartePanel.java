@@ -2,15 +2,16 @@ package vue;
 
 import java.awt.Color;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-import model.Chevalier;
+import org.hamcrest.core.IsInstanceOf;
 
+import model.Chateau;
+import model.Chevalier;
+import model.Objet;
 import controleur.ClickBoutonEcouteur;
 import controleur.FactoryObjet;
 
@@ -41,8 +42,14 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				//System.out.println("for");
 				emplacement=""+i+j;
 				Case boutonCase = new Case();
-				boutonCase.setElement(factoryObjet.createObject());
-				boutonCase.setText(emplacement);
+				Objet ob=factoryObjet.createObject();
+				boutonCase.setElement(ob);
+				if(ob instanceof Chateau){
+					boutonCase.setText("Chateau");
+				}
+				else{
+					boutonCase.setText(emplacement);
+				}
 				boutonCase.setNumeroCase(emplacement);
 				//boutonCase.addActionListener(ne);
 				boutonCase.addActionListener(new ClickBoutonEcouteur(this));
