@@ -13,7 +13,7 @@ public class TestSac extends TestCase {
 
 	Sac sac;
 	ArrayList<ObjetGraal> contenu;
-	ObjetGraal graal;
+	ObjetGraal graal, excalibur;
 	Integer poids;
 	
 	@Before
@@ -21,6 +21,7 @@ public class TestSac extends TestCase {
 		super.setUp();
 		sac = new Sac();
 		graal = new ObjetGraal("Graal",1,1);
+		excalibur = new ObjetGraal("Excalibur",2,1);
 		sac.ajoutObjetGraal(graal);
 		contenu = sac.getContenu();
 		poids= sac.getPoids();
@@ -43,16 +44,30 @@ public class TestSac extends TestCase {
 		assertTrue(contenu.isEmpty());
 	}
 	
-	public void getPoids(){
+	public void testgetPoids(){
 		assertNotNull(poids);		
 	}
 	
-	public void setPoids(){
+	public void testsetPoids(){
 		sac.setPoids(22);
 		poids=sac.getPoids();
 		assertSame(22,poids);
 	}
 	
+	public void testGetContenu(){
+		sac.getContenu();
+		assertNotNull(contenu);
+		assertTrue(contenu.contains(graal));
+	}
+	
+	public void testSetContenu(){
+		contenu.add(excalibur);
+		sac.setContenu(contenu);
+		assertTrue(contenu.contains(excalibur));
+		assertTrue(contenu.contains(graal));
+		
+		
+	}
 	
 	
 	
