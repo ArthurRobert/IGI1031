@@ -25,8 +25,7 @@ public ClickBoutonEcouteur(CartePanel cartePan) {
 	public void actionPerformed(ActionEvent e) {
 	    Object  source=e.getSource();
 	    while(((Case) source).getEstOccupe()){
-	    	System.out.println("case occupée, svp cliquez autre part");
-	    	this.actionPerformed(e);
+	    	 	this.actionPerformed(e); //genere erreur dans le console mais fonctionne
 	    }
 	    ArrayList<ArrayList<Case>> tabLignes = cartePan.getTabLignes();
 	    Chevalier chev=cartePan.getChev();
