@@ -29,11 +29,11 @@ public class TestCarte extends TestCase{
 	protected void setUp() throws Exception{
 		super.setUp();
 		Chevalier c1 = new ChevalierJoueur("Arthur");
-		Chevalier c3 = new ChevalierOrdi("AAA");
+		Chevalier c3 = new ChevalierOrdi("Perceval");
 		chevalier_vector.add(c1);
 		chevalier_vector2.add(c3);
 		carte = Carte.getInstance(nbCaseX, nbCaseY, ratio, chevalier_vector);
-		System.out.println(chevalier_vector );
+		System.out.println(chevalier_vector);
 		panel = new  CartePanel(ratio, nbCaseX, nbCaseY);
 	}
 	
@@ -48,13 +48,13 @@ public class TestCarte extends TestCase{
 	}
 	
 	//test des getteurs et setteurs
-	public void testGetCaseX(){
+	public void testGetNbCaseX(){
 		int x = carte.getNbCaseX();
 		assertNotNull(x);
 		assertEquals(x,10);
 	}
 	
-	public void testNbCaseY(){
+	public void testGetNbCaseY(){
 		int y = carte.getNbCaseY();
 		assertNotNull(y);
 		assertEquals(y,15);
@@ -72,20 +72,14 @@ public class TestCarte extends TestCase{
 		assertEquals(carte.getRatio(),r);	
 	}
 	
-	public void testGetTabChevalier(){
-		//carte.setTabChevalier(chevalier_vector);
-		System.out.println("a" + chevalier_vector);
-		assertSame(carte.getTabChevalier(),chevalier_vector);
-	}
-	
-	public void testSetTablChevalier(){
+
+	public void testSetTabChevalier(){
 		carte.setTabChevalier(chevalier_vector2);
 		assertEquals(carte.getTabChevalier(), chevalier_vector2);
 	}
 	
-	public void testGetPanel(){
-		
-	//	assertSame(carte.getCartePanel(),carte.cartePanel);
+	public void testGetPanel(){	
+		assertNotNull(carte.getCartePanel());
 	}
 	
 	public void testSetpanel(){
