@@ -15,7 +15,7 @@ public class GameFrame extends JFrame{
 	private static final long serialVersionUID = 1812513897512845459L;
 	
 	//instance singleton
-	private static volatile GameFrame gameFrame=null;
+	public static volatile GameFrame gameFrame=null;
 	private Carte map=null;
 	
 	
@@ -48,6 +48,7 @@ public class GameFrame extends JFrame{
 			
 		}
 		
+
 		//mettre dans une classe
 		void ajouterMenu(){
 			JMenuBar menubar = new JMenuBar();
@@ -111,6 +112,14 @@ public class GameFrame extends JFrame{
 			 this.add(map.getCartePanel());
 			this.setVisible(true);
 			}
+		}
+		
+		public static GameFrame getGameFrame() {
+			return gameFrame;
+		}
+
+		public static void setGameFrame(GameFrame gameFrame) {
+			GameFrame.gameFrame = gameFrame;
 		}
 	
 	

@@ -27,6 +27,10 @@ public class Case extends JButton{
 	public Objet getElement() {
 		return element;
 	}
+	
+	public void removeElement(){
+		this.element = null;
+	}
 	public void marquerPositionChevalier(String nomChevalier,Color couleurCase){
 		numeroCase=this.getText();
 		this.setText(nomChevalier);

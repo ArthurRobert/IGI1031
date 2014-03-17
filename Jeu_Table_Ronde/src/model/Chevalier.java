@@ -1,6 +1,12 @@
 package model;
 
-import org.hamcrest.core.IsInstanceOf;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import vue.Case;
+import vue.GameFrame;
 
 
 
@@ -14,26 +20,30 @@ public class Chevalier {
 	private Integer positionY;
 	private Mouvement mouvement;
 	private Sac sacChevalier;
+
+	JFrame jf = null;
 	
 	//Constructeur
 	public Chevalier(String unNom){
 		nom=unNom;
 		sacChevalier= new Sac();
 		nivVie = 100;
+		
+		
 	}
 
 
 
-public boolean trouverObjet(Objet o){
+public boolean trouverObjet(Objet o, Case c){
 	boolean victoire = false;
+	this.setNivVie(nivVie+ o.getNbVie());
 	if(o instanceof ObjetGraal){
 		this.sacChevalier.ajoutObjetGraal((ObjetGraal) o);
-		this.setNivVie(nivVie+ o.getNbVie());
-		System.out.println("Objet ramassé");
+		JOptionPane.showMessageDialog(jf, this.getNom() +" a ramassé " + o.getType() + "\nVotre niveau de vie est de "+ this.getNivVie());
+		c.removeElement();
 	}
 	if(o instanceof ObjetObstacle){
-		this.setNivVie(nivVie+ o.getNbVie());
-		System.out.println("obstacle rencontré");
+		JOptionPane.showMessageDialog(jf, this.getNom() +" a rencontré " + o.getType() + "\nVotre niveau de vie est de "+ this.getNivVie());
 
 	}
 	if(o instanceof Chateau && this.sacChevalier.getContenu().size() == 4 && this.nivVie>0 ){
