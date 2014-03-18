@@ -27,26 +27,29 @@ public class Chevalier {
 	public Chevalier(String unNom){
 		nom=unNom;
 		sacChevalier= new Sac();
-		nivVie = 100;
-		
-		
+		nivVie = 100;		
 	}
 
-
-
 public boolean trouverObjet(Objet o, Case c){
+	String s ="";
 	boolean victoire = false;
 	this.setNivVie(nivVie+ o.getNbVie());
 	if(o instanceof ObjetGraal){
+		s = "";
 		this.sacChevalier.ajoutObjetGraal((ObjetGraal) o);
-		JOptionPane.showMessageDialog(jf, this.getNom() +" a ramassé " + o.getType() + "\nVotre niveau de vie est de "+ this.getNivVie());
+		for(int i = 0; i<this.sacChevalier.getContenu().size();i++){
+			
+			s = s +"\n"+ this.sacChevalier.getContenu().get(i).getType().toString();
+		}
+		
+		JOptionPane.showMessageDialog(jf, this.getNom() +" a ramassé " + o.getType() + "\nVotre niveau de vie est de "+ this.getNivVie() +"\nSac : "+s);
 		c.removeElement();
 	}
 	if(o instanceof ObjetObstacle){
 		JOptionPane.showMessageDialog(jf, this.getNom() +" a rencontré " + o.getType() + "\nVotre niveau de vie est de "+ this.getNivVie());
 
 	}
-	if(o instanceof Chateau && this.sacChevalier.getContenu().size() == 4 && this.nivVie>0 ){
+	if(o instanceof Chateau && this.sacChevalier.getContenu().size() >= 4 && this.nivVie>0 ){
 		victoire = true;
 	}
 	return victoire;
