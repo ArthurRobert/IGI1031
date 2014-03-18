@@ -9,6 +9,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import model.ChevalierJoueur;
 import model.ChevalierOrdi;
 import model.Chevalier;
 import model.Objet;
@@ -17,6 +18,7 @@ import vue.Carte;
 import vue.CartePanel;
 import vue.Case;
 import vue.GameFrame;
+
 
 
 
@@ -83,15 +85,19 @@ public class JeuxDeTests {
 						                "Bravo, vous avez gagné!",
 						                "Victoire", JOptionPane.INFORMATION_MESSAGE,
 						                iconV);
-								
 								i=4;
 							}
 							else{
 								if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+									// Affichage de la fenêtre "joueur suivant" seulement si humain
+									if(listeChev.get(i) instanceof ChevalierJoueur){
+										JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+									
 																	listeChev.get(i).getNivVie()+ " points de vie " + 
-																	"\nJoueur suivant");
+																	"\nJoueur suivant : " + listeChev.get(i+1).getNom());
+										}
 								}
+								
 								else{
 									// Affichage défaite
 									listeChev.get(i).getSacChevalier().viderSac();
@@ -106,9 +112,12 @@ public class JeuxDeTests {
 						//Chevalier sur une case vide
 						 else{ 
 							 if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+									// Affichage de la fenêtre "joueur suivant" seulement si humain
+									if(listeChev.get(i) instanceof ChevalierJoueur){
+										JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
 																	listeChev.get(i).getNivVie()+ " points de vie " + 
-																	"\nJoueur suivant");
+																	"\nJoueur suivant : " + listeChev.get(i+1).getNom());
+									}
 							 }
 							 else{
 								// Affichage défaite
