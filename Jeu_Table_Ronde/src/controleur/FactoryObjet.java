@@ -26,7 +26,7 @@ public class FactoryObjet {
 	public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
 
 	//DefObjetGraal : {type, poids, nbVie}
-	public static final String[][] DefObjetGraal = {{"Excalibur","2","75"},{"Pierre_Fal_Lial","1","25"},{"Lance_de_lug","3","25"},{"Chaudron_Connaissance","4","50"}};
+	public static final String[][] DefObjetGraal = {{"Excalibur","1","75"},{"Pierre_Fal_Lial","1","25"},{"Lance_de_lug","1","25"},{"Chaudron_Connaissance","1","50"}};
 
 
 	//Creation des objets
