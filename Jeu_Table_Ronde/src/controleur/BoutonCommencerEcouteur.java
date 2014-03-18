@@ -146,10 +146,10 @@ public class BoutonCommencerEcouteur implements ActionListener {
 					carte.getCartePanel().repaint();
 					
 				}
-				//si la carte n'existe pas creation de la garte
+				//si la carte n'existe pas, creation de la carte
 				//mettre au dimension, creation de la carte
 				if(!Carte.isCreated()){
-					carte=Carte.getInstance(largeur, hauteur, ratio, chevalier_vector);
+					carte=Carte.getInstance(largeur, hauteur, ratio/2, chevalier_vector);
 					((NouvellePartie)o).setMapToFatherPanel(carte);
 				}
 				else{
