@@ -25,6 +25,7 @@ public class NouvellePartie extends JFrame {
 		startButton.setPreferredSize(new Dimension(10,20));
 		
 		
+		
 		panelSouth.add(startButton,BorderLayout.CENTER);
 		panelSouth.setBorder(BorderFactory.createEmptyBorder(0, 240, 10, 240));
 		

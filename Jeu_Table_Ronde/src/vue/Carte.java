@@ -99,10 +99,26 @@ public final class Carte {
 	
 	public final static Carte newMap(int largeur1, int hauteur1, float ratio, ArrayList<Chevalier> c){
 			synchronized(Carte.class){
+				
+				
+	            	GameFrame gf = GameFrame.getInstance();
+	            	gf.remove(gf.getMap().getCartePanel());
+	            	gf.setMap(null);
+	            	gf.repaint();
+            	
 			Carte.AuxQuatresCoinDuMonde= new Carte(ratio, largeur1, hauteur1);
 			Carte.AuxQuatresCoinDuMonde.tabChevalier = c;
 			Carte.AuxQuatresCoinDuMonde.ratio = ratio;
 		}
 		return Carte.AuxQuatresCoinDuMonde;
+	}
+	
+	public void setNbCaseX(int nbCaseX) {
+		this.nbCaseX = nbCaseX;
+	}
+
+
+	public void setNbCaseY(int nbCaseY) {
+		this.nbCaseY = nbCaseY;
 	}
 }

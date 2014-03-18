@@ -29,7 +29,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 	
 	private Object o;
 
-	private ArrayList<Chevalier> chevalier_vector = new ArrayList<Chevalier>();
+	private ArrayList<Chevalier> chevalier_vector = new ArrayList<Chevalier>(4);
 	
 	/**
 	 * Constructeur
@@ -68,7 +68,8 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		 * Vérification du nom des joueurs
 		 */	
 		//obtention des noms des joueurs
-		ArrayList<String> joueursNames = new ArrayList<String>();
+		ArrayList<String> joueursNames = new ArrayList<String>(4);
+		joueursNames.clear();
 		joueursNames.add(joueur1.getText());
 		joueursNames.add(joueur2.getText());
 		joueursNames.add(joueur3.getText());
@@ -79,7 +80,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 		int hauteur = isDimensionOk(hauteurTf.getText());
 		float ratio = (float) ((float) ratioTf.getValue()/100.0);
 		Carte carte;
-
+		chevalier_vector.clear();
 		//test du nom des joueurs
 		if (isPlayerNameOk(joueursNames))
 		{
@@ -134,7 +135,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 					chevalier_vector.add(FactoryChevalier.addChevalier(hauteur,largeur,joueur4.getText(), "joueur"));
 					System.out.println(joueur4.getText() + " dirigé par un joueur !");
 				}
-				
+				/*
 				//test si la carte existe
 				if(Carte.isCreated()){
 					System.out.println("carte déjà créée");
@@ -145,7 +146,7 @@ public class BoutonCommencerEcouteur implements ActionListener {
 					carte.setCartePanel(cartePanel);
 					carte.getCartePanel().repaint();
 					
-				}
+				}*/
 				//si la carte n'existe pas, creation de la carte
 				//mettre au dimension, creation de la carte
 				if(!Carte.isCreated()){

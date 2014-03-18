@@ -60,6 +60,9 @@ public class GameFrame extends JFrame{
 	        eMenuItemNew.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
+	            	
+	        		
+	        		
 	            	new NouvellePartie();
 	            }
 	        });
