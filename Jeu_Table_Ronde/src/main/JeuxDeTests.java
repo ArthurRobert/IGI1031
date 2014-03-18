@@ -88,10 +88,13 @@ public class JeuxDeTests {
 							}
 							else{
 								if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, "Joueur suivant");
+									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+																	listeChev.get(i).getNivVie()+ " points de vie " + 
+																	"\nJoueur suivant");
 								}
 								else{
 									// Affichage défaite
+									listeChev.get(i).getSacChevalier().viderSac();
 							        JOptionPane.showMessageDialog(null,
 							                "Votre quête du graal s'achève ici...",
 							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
@@ -103,16 +106,16 @@ public class JeuxDeTests {
 						//Chevalier sur une case vide
 						 else{ 
 							 if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, "Joueur suivant");
+									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+																	listeChev.get(i).getNivVie()+ " points de vie " + 
+																	"\nJoueur suivant");
 							 }
 							 else{
-								 FinPartieDefaite finDefaite = new FinPartieDefaite();
-								 //gestion relacher objet a completer ligne en dessous
-								// listeChev.get(i).getSacChevalier().getContenu()
-								 
-								 
-								 
-								 //////////////////////////////////////////////////
+								// Affichage défaite
+								 JOptionPane.showMessageDialog(null,
+							                "Votre quête du graal s'achève ici...",
+							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
+							                iconD);
 								 listeChev.remove(i);
 							 }
 						 }
