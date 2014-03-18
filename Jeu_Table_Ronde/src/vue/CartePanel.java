@@ -15,7 +15,7 @@ import model.Objet;
 import controleur.ClickBoutonEcouteur;
 import controleur.FactoryObjet;
 
-public class CartePanel extends JPanel /*implements ActionListener*/ {
+public class CartePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	ArrayList<ArrayList<Case>> tabLignes = null;	
@@ -64,21 +64,6 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 		}
 		
 	}//fin constructeur
-/*
-	public  void    actionPerformed(ActionEvent e){
-	        Object  source=e.getSource();
-	        
-	       //On cherche sur quel bouton l'utilisateur a cliqué
-	        for(int i=0;i<tabLignes.size();i++){
-	        	for(int j=0;j<(tabLignes.get(i)).size();j++){
-		        	if(source==(tabLignes.get(i)).get(j)){
-		        		System.out.println((tabLignes.get(i)).get(j).getText()); //affichage du numéro de case dans la console
-		        		this.deplacementPossible(i, j);
-		        	}//fin if
-	        	}//fin for
-	        }//fin for
-	 
-	 }//fin actionPerformed*/
 	 
 	 public int  getNbCaseX(){
 		 return this.largeur;
