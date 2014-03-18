@@ -52,7 +52,7 @@ public class Case extends JButton{
 	}
 
 	public String getNumeroCase() {
-		return numeroCase;
+		return this.numeroCase;
 	}
 
 	public void setNumeroCase(String numeroCase) {
