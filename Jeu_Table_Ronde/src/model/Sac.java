@@ -35,8 +35,8 @@ public class Sac {
 			Carte carte = Carte.getInstance(0, 0, 0, null);
 			for(int i=0; i< this.contenu.size();i++){
 				
-				x = (int)Math.random()*carte.getNbCaseX()-1;
-				y = (int)Math.random()*carte.getNbCaseY()-1;
+				x = (int)Math.random()*(carte.getNbCaseX()-1);
+				y = (int)Math.random()*(carte.getNbCaseY()-1);
 				
 				while(carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() == "Chateau" 
 							|| carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() =="ObjetGraal"){

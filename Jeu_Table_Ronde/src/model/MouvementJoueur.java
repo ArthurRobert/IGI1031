@@ -32,6 +32,7 @@ public class MouvementJoueur implements Mouvement {
 					e.printStackTrace();
 				}
 			};
+			chevalier.setNivVie(chevalier.getNivVie() - chevalier.getSacChevalier().getPoids());
 			
 		}
 		return true;

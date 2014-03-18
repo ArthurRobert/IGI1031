@@ -42,6 +42,7 @@ public class MouvementOrdi implements Mouvement {
 			if(positionOK){
 				chevalier.setPositionX(tabXY[0]);
 				chevalier.setPositionY(tabXY[1]);
+				chevalier.setNivVie(chevalier.getNivVie() - chevalier.getSacChevalier().getPoids());
 			}
 			carte.getCartePanel().getTabLignes().get(chevalier.getPositionX()).get(chevalier.getPositionY()).marquerPositionChevalier(chevalier.getNom(),Color.BLUE);
 		
