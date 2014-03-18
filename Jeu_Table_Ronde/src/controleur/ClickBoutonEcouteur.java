@@ -33,7 +33,9 @@ public ClickBoutonEcouteur(CartePanel cartePan) {
 	    for(int i=0;i<tabLignes.size();i++){
 	    	for(int j=0;j<tabLignes.get(0).size();j++){
 		    	if(source==tabLignes.get(i).get(j)){
-		    		//System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console		    		
+		    		//System.out.println(tabLignes.get(i).get(j).getText()); //affichage du numéro de case dans la console	
+		    		System.out.println("nom chev "+chev.getNom());
+		    		System.out.println("num case ancienne "+tabLignes.get(chev.getPositionX()).get(chev.getPositionY()).getNumeroCase());
 		    		tabLignes.get(chev.getPositionX()).get(chev.getPositionY()).enleverPositionChevalier(chev.getNom());	
 		    		tabLignes.get(chev.getPositionX()).get(chev.getPositionY()).setEstOccupe(false);
 		    		chev.setPositionX(i);
