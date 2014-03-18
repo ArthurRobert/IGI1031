@@ -14,8 +14,8 @@ public class Sac {
 		contenu = new ArrayList<ObjetGraal>();
 		System.out.println("sac cree");
 	}
-		
-	
+
+
 	/**
 	 * Fonction d'ajout d'un objet Graal au sac 
 	 * */
@@ -23,7 +23,7 @@ public class Sac {
 		this.getContenu().add(graal);
 		this.setPoids(this.getPoids() + graal.poids);
 	}
-	
+
 	/**
 	 * Fonction pour vider entièrement le sac
 	 * */
@@ -34,23 +34,20 @@ public class Sac {
 			int y;
 			Carte carte = Carte.getInstance(0, 0, 0, null);
 			for(int i=0; i< this.contenu.size();i++){
-				
-				x = (int)Math.random()*(carte.getNbCaseX()-1);
-				y = (int)Math.random()*(carte.getNbCaseY()-1);
-				
-				while(carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() == "Chateau" 
-							|| carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() =="ObjetGraal"){
-						x = (int)Math.random()*carte.getNbCaseX()-1;
-						y = (int)Math.random()*carte.getNbCaseY()-1;
-				}
-				
-					carte.getCartePanel().getTabLignes().get(x).get(y).setElement(this.contenu.get(i));		
+
+				do{
+					x = (int)(Math.random()*(carte.getNbCaseX()-1));
+					y = (int)(Math.random()*(carte.getNbCaseY()-1));
+
+				}while(carte.getCartePanel().getTabLignes().get(x).get(y).getElement() != null);
+
+				carte.getCartePanel().getTabLignes().get(x).get(y).setElement(this.contenu.get(i));		
 			}
 			this.contenu.clear();
 		}
 	}
 
-	
+
 	/**
 	 * Fonctions Getter and Setter 
 	 * */
@@ -69,6 +66,6 @@ public class Sac {
 	public void setContenu(ArrayList<ObjetGraal> contenu) {
 		this.contenu = contenu;
 	}
-	
-	
+
+
 }
