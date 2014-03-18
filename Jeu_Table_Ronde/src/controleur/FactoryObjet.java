@@ -43,13 +43,6 @@ public class FactoryObjet {
 		// On test si il y a plus de place sur la map que de nombre d'objet graal à poser.
 		else if(((sizeMap - nbCreated) >= (DefObjetGraal.length - listeGraal.size())) ){
 
-			//calcul de la probabilité de créer un objet sur la map
-			//double test = Math.random();
-			//double test = ((double)(DefObjetGraal.length + ratio*sizeMap))/(sizeMap); 
-			//if(test <= (double)(DefObjetGraal.length)/(sizeMap))
-
-
-			//if( Math.random() <= test){
 			//calcul de la probabilité de créer un objet graal sur la map
 			if(( Math.random() <= ((double)DefObjetGraal.length)/(sizeMap))){	
 				o = createObjectGraal();
