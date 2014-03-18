@@ -2,6 +2,9 @@ package model;
 
 import java.util.ArrayList;
 
+import vue.Carte;
+import vue.Case;
+
 public class Sac {
 	private int poids; 
 	private ArrayList<ObjetGraal> contenu;
@@ -25,7 +28,26 @@ public class Sac {
 	 * Fonction pour vider entièrement le sac
 	 * */
 	public void viderSac(){
-		this.contenu.clear();
+		if(Carte.isCreated()){
+			Case c;
+			int x;
+			int y;
+			Carte carte = Carte.getInstance(0, 0, 0, null);
+			for(int i=0; i< this.contenu.size();i++){
+				
+				x = (int)Math.random()*carte.getNbCaseX()-1;
+				y = (int)Math.random()*carte.getNbCaseY()-1;
+				
+				while(carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() == "Chateau" 
+							|| carte.getCartePanel().getTabLignes().get(x).get(y).getElement().getType().toString() =="ObjetGraal"){
+						x = (int)Math.random()*carte.getNbCaseX()-1;
+						y = (int)Math.random()*carte.getNbCaseY()-1;
+				}
+				
+					carte.getCartePanel().getTabLignes().get(x).get(y).setElement(this.contenu.get(i));		
+			}
+			this.contenu.clear();
+		}
 	}
 
 	

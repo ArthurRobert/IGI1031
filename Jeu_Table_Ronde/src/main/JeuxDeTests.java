@@ -49,9 +49,10 @@ public class JeuxDeTests {
 		Objet testElement = null;
 		Case c;
 		String path = new File("").getAbsolutePath();
-		String pathImage=path+"/src/defaite.gif";
-        Icon icon = new ImageIcon(pathImage);
-		
+		String pathImageD=path+"/src/defaite.gif";
+		String pathImageV=path+"/src/victoire.gif";
+        Icon iconD = new ImageIcon(pathImageD);
+        Icon iconV= new ImageIcon(pathImageV);
 				
 		// Test pour savoir si la carte a été créée par l'utilisateur (bouton Démarrer)
 		do{
@@ -77,18 +78,27 @@ public class JeuxDeTests {
 						if(testElement != null ){ 
 							victoire = listeChev.get(i).trouverObjet(testElement, c);
 							if(victoire){
-								FinPartieVictoire finVictoire = new FinPartieVictoire();
+								// Affichage victoire
+								JOptionPane.showMessageDialog(null,
+						                "Bravo, vous avez gagné!",
+						                "Victoire", JOptionPane.INFORMATION_MESSAGE,
+						                iconV);
+								
 								i=4;
 							}
 							else{
 								if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, "Joueur suivant");
+									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+																	listeChev.get(i).getNivVie()+ " points de vie " + 
+																	"\nJoueur suivant");
 								}
 								else{
+									// Affichage défaite
+									listeChev.get(i).getSacChevalier().viderSac();
 							        JOptionPane.showMessageDialog(null,
 							                "Votre quête du graal s'achève ici...",
 							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
-							                icon);
+							                iconD);
 									 listeChev.remove(i);
 								}
 							}
@@ -96,16 +106,17 @@ public class JeuxDeTests {
 						//Chevalier sur une case vide
 						 else{ 
 							 if(listeChev.get(i).getNivVie()>0){
-									JOptionPane.showMessageDialog(gm, "Joueur suivant");
+									JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
+																	listeChev.get(i).getNivVie()+ " points de vie " + 
+																	"\nJoueur suivant");
 							 }
 							 else{
-								 FinPartieDefaite finDefaite = new FinPartieDefaite();
-								 //gestion relacher objet a completer ligne en dessous
-								// listeChev.get(i).getSacChevalier().getContenu()
-								 
-								 
-								 
-								 //////////////////////////////////////////////////
+								// Affichage défaite
+								 listeChev.get(i).getSacChevalier().viderSac();
+								 JOptionPane.showMessageDialog(null,
+							                "Votre quête du graal s'achève ici...",
+							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
+							                iconD);
 								 listeChev.remove(i);
 							 }
 						 }
