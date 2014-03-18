@@ -55,6 +55,7 @@ public class JeuxDeTests {
 		String pathImageV=path+"/src/victoire.gif";
         Icon iconD = new ImageIcon(pathImageD);
         Icon iconV= new ImageIcon(pathImageV);
+        int j=0;
 				
 		// Test pour savoir si la carte a été créée par l'utilisateur (bouton Démarrer)
 		do{
@@ -91,10 +92,14 @@ public class JeuxDeTests {
 								if(listeChev.get(i).getNivVie()>0){
 									// Affichage de la fenêtre "joueur suivant" seulement si humain
 									if(listeChev.get(i) instanceof ChevalierJoueur){
+										// Si dernier chevalier de la liste
+										if(j==listeChev.size()-1 ){
+											j=-1;
+										}
 										JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
-									
 																	listeChev.get(i).getNivVie()+ " points de vie " + 
-																	"\nJoueur suivant : " + listeChev.get(i+1).getNom());
+																	"\nJoueur suivant : " + listeChev.get(j+1).getNom());
+										j++;
 										}
 								}
 								
@@ -114,9 +119,14 @@ public class JeuxDeTests {
 							 if(listeChev.get(i).getNivVie()>0){
 									// Affichage de la fenêtre "joueur suivant" seulement si humain
 									if(listeChev.get(i) instanceof ChevalierJoueur){
+										// Si dernier chevalier de la liste
+										if(j==listeChev.size()-1 ){
+											j=-1;
+										}
 										JOptionPane.showMessageDialog(gm, listeChev.get(i).getNom() + " a "+ 
 																	listeChev.get(i).getNivVie()+ " points de vie " + 
-																	"\nJoueur suivant : " + listeChev.get(i+1).getNom());
+																	"\nJoueur suivant : " + listeChev.get(j+1).getNom());
+										j++;
 									}
 							 }
 							 else{
