@@ -26,7 +26,7 @@ public class FactoryObjet {
 	public static final String[][] DefObjetObstacle = {{"ronce","-10"},{"puit","-15"},{"falaise","-20"}};
 
 	//DefObjetGraal : {type, poids, nbVie}
-	public static final String[][] DefObjetGraal = {{"Excalibur","10","50"},{"Pierre_Fal_Lial","15","25"},{"Lance_de_lug","20","30"},{"Chaudron_Connaissance","25","35"}};
+	public static final String[][] DefObjetGraal = {{"Excalibur","2","75"},{"Pierre_Fal_Lial","1","25"},{"Lance_de_lug","3","25"},{"Chaudron_Connaissance","4","50"}};
 
 
 	//Creation des objets
@@ -55,14 +55,12 @@ public class FactoryObjet {
 				for (int i=0; i<DefObjetObstacle.length;i++){
 					if(x<=((double)(i+1)/DefObjetObstacle.length)){
 						o = new ObjetObstacle(DefObjetObstacle[i][0],Integer.parseInt(DefObjetObstacle[i][1]));
-						System.out.println("objet décor");
 						break;
 					}
 				}
 			}
 			else{
 				o = null;
-				System.out.println("null");
 			}
 		}
 		else{
@@ -105,7 +103,6 @@ public class FactoryObjet {
 					int j = objectNextFree(i,listeGraal);
 					o = new ObjetGraal(DefObjetGraal[j][0], Integer.parseInt(DefObjetGraal[j][1]),Integer.parseInt(DefObjetGraal[j][2]));
 					listeGraal.add((ObjetGraal) o);
-					System.out.println("objet graal");
 					break;
 				}
 			}
