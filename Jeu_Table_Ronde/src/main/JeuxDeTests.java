@@ -49,9 +49,10 @@ public class JeuxDeTests {
 		Objet testElement = null;
 		Case c;
 		String path = new File("").getAbsolutePath();
-		String pathImage=path+"/src/defaite.gif";
-        Icon icon = new ImageIcon(pathImage);
-		
+		String pathImageD=path+"/src/defaite.gif";
+		String pathImageV=path+"/src/victoire.gif";
+        Icon iconD = new ImageIcon(pathImageD);
+        Icon iconV= new ImageIcon(pathImageV);
 				
 		// Test pour savoir si la carte a été créée par l'utilisateur (bouton Démarrer)
 		do{
@@ -77,7 +78,12 @@ public class JeuxDeTests {
 						if(testElement != null ){ 
 							victoire = listeChev.get(i).trouverObjet(testElement, c);
 							if(victoire){
-								FinPartieVictoire finVictoire = new FinPartieVictoire();
+								// Affichage victoire
+								JOptionPane.showMessageDialog(null,
+						                "Bravo, vous avez gagné!",
+						                "Victoire", JOptionPane.INFORMATION_MESSAGE,
+						                iconV);
+								
 								i=4;
 							}
 							else{
@@ -85,10 +91,11 @@ public class JeuxDeTests {
 									JOptionPane.showMessageDialog(gm, "Joueur suivant");
 								}
 								else{
+									// Affichage défaite
 							        JOptionPane.showMessageDialog(null,
 							                "Votre quête du graal s'achève ici...",
 							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
-							                icon);
+							                iconD);
 									 listeChev.remove(i);
 								}
 							}
