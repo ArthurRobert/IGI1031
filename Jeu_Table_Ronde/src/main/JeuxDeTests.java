@@ -112,6 +112,7 @@ public class JeuxDeTests {
 							 }
 							 else{
 								// Affichage défaite
+								 listeChev.get(i).getSacChevalier().viderSac();
 								 JOptionPane.showMessageDialog(null,
 							                "Votre quête du graal s'achève ici...",
 							                "Défaite", JOptionPane.INFORMATION_MESSAGE,
