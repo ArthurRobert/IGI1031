@@ -46,6 +46,7 @@ public class CartePanel extends JPanel /*implements ActionListener*/ {
 				boutonCase.setElement(ob);
 				if(ob instanceof Chateau){
 					boutonCase.setText("Chateau");
+					boutonCase.setNumeroCase("Chateau");
 				}
 				else{
 					boutonCase.setText(emplacement);
